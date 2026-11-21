@@ -1,0 +1,17 @@
+Loan No,Borrower Name,Mobile,Lang,Pincode,DPD,Overdue Amt,EMI,EMIs Due,EMIs Paid,Usual Pay Day,PTP Made,PTP Kept,Calls Last 7d,Last Call Result,DND,Status,Remarks
+KS-1001,Lakshmi Devi,9000010001,Hindi,226001,12,"8,400",8400,12,11,21,2,2,0,,,Overdue,
+KS-1002,Ravi Kumar,9000010002,Hindi,110001,18,6200,6200,10,8,22,1,1,0,,,Overdue,
+KS-1003,Meena Kumari,9000010003,Hindi,302001,35,"₹ 15,000",7500,14,10,20,2,1,0,,,Overdue,
+KS-1004,Suresh Yadav,9000010004,Hindi,800001,22,5400/-,5400,9,6,5,1,0,0,,,Pending,
+KS-1005,Fatima Begum,9000010005,Hindi,226001,41,9800,4900,11,8,10,1,1,0,,,Overdue,
+KS-1006,Arjun Reddy,9000010006,Tamil,600001,27,7300,7300,8,6,23,0,0,0,,,Overdue,
+KS-1007,Anita Patel,9000010007,Gujarati,380001,4,3100,3100,12,11,15,0,0,0,,,Overdue,
+KS-1008,Imran Khan,9000010008,Hindi,110001,15,4600,4600,10,7,5,1,1,0,,,Overdue,salary 5th ko aayega
+KS-1009,Mary Thomas,9000010009,English,682001,20,NA,5200,9,7,7,0,0,0,,,Overdue,
+KS-1010,Vijay Patil,9000010010,Marathi,411001,9,4100,4100,12,12,1,0,0,0,,,Paid,
+KS-1011,Harpreet Kaur,9000010011,Hindi,110001,30,6600,6600,10,6,10,1,0,0,,Y,Overdue,
+KS-1012,Manoj Gupta,9000010012,Hindi,226001,45,"12,300",6150,12,7,15,3,1,3,no_answer,,Overdue,
+KS-1013,Salim Sheikh,9000010013,Hindi,400001,95,1.10 lakh,9000,20,6,2,5,0,1,no_answer,,Overdue,
+KS-1014,Rekha Verma,9000010014,Hindi,302001,14,5000,5000,8,7,20,0,0,0,,,Overdue,branch mein de diya
+KS-1015,Sunita Sharma,9000010015,Hindi,226001,25,7000,7000,10,7,21,2,1,0,,,Overdue,
+KS-1016,Ayesha Khan,9000010016,Tamil,600001,25,7000,7000,10,7,21,2,1,0,,,Overdue,

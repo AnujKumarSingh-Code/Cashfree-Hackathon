@@ -1,0 +1,307 @@
+LAN,Customer,Contact No,Bhasha,District,Days Late,Bakaya,Paid Count,EMIs Billed,Last Paid On,Promise Count,PTP Honoured,Attempts,Disposition,Loan Status,Agent Notes,Caste,Religion,Gender,Branch Manager,Risk Grade (old)
+CB937933-0000,Sunita Sharma,+91 9000020000,Malayalam,682001,27,4607/-,,,25.09.2026,0,0,0,,Overdue,,obc,hindu,F,A,A1
+CB991021-0001,Manoj Gupta,+91 9000011075,Kannada,560068,216,19908,,,20.03.2026,1,1,2,promise,Current,bola 30 tarikh ko de dunga,general,hindu,M,C,C3
+CB599018-0002,Meena Kumari,+91 9000062723,tamil,641001,18,15937/-,0,10,04.10.2026,3,2,1,,overdue,,obc,hindu,F,A,B2
+CB190324-0003,Salim Sheikh,+91 9000066342,hi,800001,35,25045,5,23,17.09.2026,4,0,1,,Overdue,,sc,muslim,M,B,B2
+CB767715-0004,Imran Khan,+91 9000023396,Kannada,560068,12,7253,5,21,10.10.2026,4,2,0,,Overdue,,obc,muslim,M,B,
+CB501281-0005,Thomas Varghese,+91 9000080479,Marathi,400001,26,8553/-,9,19,26.09.2026,4,1,2,,overdue,amount galat hai bol raha hai,st,christian,M,A,B2
+CB836183-0006,Anita Patel,+91 9000075114,hi,800001,86,Rs. 7078,,,28.07.2026,4,1,1,callback,Overdue,,obc,hindu,F,B,
+CB956035-0007,Meena Kumari,+91 9000024017,hi,800001,61,Rs. 39278,5,20,22.08.2026,1,0,1,,Pending,,general,hindu,F,C,
+CB669874-0008,Suresh Yadav,+91 9000063272,Gujarati,380001,48,33390,,,04.09.2026,4,0,0,,Overdue,,general,hindu,M,A,B2
+CB973773-0009,Manoj Gupta,+91 9000031050,Bengali,700001,21,18619,,,01.10.2026,6,0,0,,Pending,சம்பளம் 5 ம் தேதி வரும்,general,hindu,M,B,C3
+CB792785-0010,Thomas Varghese,+91 9000056300,hi,800001,73,34479/-,2,3,10.08.2026,3,0,0,,Overdue,,sc,christian,M,A,B2
+CB948560-0011,Anita Patel,+91 9000039855,Bengali,700001,2,16394,4,8,20.10.2026,6,2,2,callback,,,general,hindu,F,A,C3
+CB540392-0012,Thomas Varghese,+91 9000033394,Kannada,560068,221,"₹ 69,648",6,7,15.03.2026,4,2,0,,,,sc,christian,M,A,
+CB906547-0013,Suresh Yadav,+91 9000073331,hi,800001,117,Rs. 23963,3,4,27.06.2026,0,0,0,,overdue,bola 10 tarikh ko de dunga,st,hindu,M,C,A1
+CB666317-0014,Kavita Yadav,+91 9000048267,marathi,411001,60,21656,18,23,23.08.2026,0,0,0,,Overdue,,st,hindu,F,C,A1
+CB158135-0015,Raghu Iyer,+91 9000092296,Kannada,560068,89,Rs. 8997,4,16,25.07.2026,5,1,0,,overdue,,obc,hindu,M,C,C3
+CB575824-0016,Sunita Sharma,+91 9000041607,Hindi,110001,24,"₹ 16,599",3,15,28.09.2026,2,1,1,no_answer,Overdue,,sc,hindu,F,A,
+CB778504-0017,Shabana Sheikh,+91 9000043853,Gujarati,380001,195,abc,2,3,10.04.2026,3,3,2,callback,Legal,,sc,muslim,F,C,B2
+CB702420-0018,Rekha Verma,+91 9000011205,hindi,226001,27,3279,,,25.09.2026,1,0,3,no_answer,Overdue,,sc,hindu,F,B,C3
+CB481852-0019,Rekha Verma,+91 9000083138,hindi,226001,31,11634/-,13,22,21.09.2026,1,0,0,,OVERDUE,,sc,hindu,F,C,A1
+CB408256-0020,Lakshmi Devi,+91 9000099873,Bengali,700001,29,17101,,,23.09.2026,3,3,1,promise,W/O,,obc,hindu,F,A,A1
+CB639523-0021,Sunita Sharma,+91 9000089797,Tamil,600001,30,Rs. 5921,3,4,22.09.2026,2,2,0,,Pending,,general,hindu,F,B,
+CB390722-0022,Lakshmi Devi,+91 9000098255,Bengali,700001,51,10137,,,01.09.2026,4,1,2,promise,overdue,,sc,hindu,F,A,C3
+CB587911-0023,Fatima Begum,+91 9000023367,hindi,226001,2,10223,,,20.10.2026,2,1,0,,overdue,,sc,muslim,F,C,
+CB710222-0024,Meena Kumari,+91 9000087003,Marathi,400001,5,"9,714.00",,,17.10.2026,0,0,0,,Overdue,சம்பளம் 5 ம் தேதி வரும்,obc,hindu,F,B,B2
+CB547603-0025,Ramesh Kumar,+91 9000057762,Kannada,560068,13,15508,,,09.10.2026,1,1,3,,Overdue,,st,hindu,M,B,
+CB831179-0026,Ayesha Khan,+91 9000099109,kannada,560001,25,12542,43,8,27.09.2026,1,1,0,,Overdue,,sc,muslim,F,B,A1
+CB834586-0027,Sunita Sharma,+91 9000010942,Hindi,110001,15,9954,10,16,07.10.2026,1,1,2,no_answer,Pending,,obc,hindu,F,C,A1
+CB851435-0028,Rekha Verma,+91 9000086084,Kannada,560068,48,"₹ 20,970",,,04.09.2026,4,0,0,,Overdue,,sc,hindu,F,A,B2
+CB950960-0029,Manoj Gupta,+91 9000035513,Telugu,500001,31,32184,4,23,21.09.2026,3,0,0,,overdue,salary 10th ko aayega,general,hindu,M,B,B2
+CB203529-0030,Anita Patel,+91 9000034911,Malayalam,682001,,"8,211.00",8,8,14.10.2026,0,0,2,promise,,,sc,hindu,F,B,B2
+CB561381-0031,Lakshmi Devi,+91 9000094328,Kannada,560068,1,see file,,,21.10.2026,2,0,0,,Overdue,,st,hindu,F,C,A1
+CB516868-0032,Ramesh Kumar,+91 9000094904,hi,800001,72,19391,,,11.08.2026,3,2,0,,Legal,,sc,hindu,M,A,
+CB813245-0033,Gurpreet Singh,+91 9000040408,Bengali,700001,1,14548,1,8,21.10.2026,0,0,0,,W/O,,sc,sikh,M,A,
+CB524970-0034,Yusuf Qureshi,+91 9000092465,HINDI,302001,79,25488,4,15,04.08.2026,3,2,0,,Overdue,,sc,muslim,M,B,B2
+CB672086-0035,Imran Khan,+91 9000026758,Tamil,600001,10,"₹ 10,870",,,12.10.2026,0,0,0,,overdue,,sc,muslim,M,B,A1
+CB393637-0036,Ramesh Kumar,+91 9000062442,tamil,641001,16,10461,,,06.10.2026,0,0,3,,overdue,,obc,hindu,M,B,C3
+CB528992-0037,Anita Patel,+91 9000080653,kannada,560001,33,"28,948.00",4,9,19.09.2026,0,0,0,,Overdue,,st,hindu,F,A,B2
+CB935822-0038,Ramesh Kumar,+91 9000056995,Tamil,600001,40,20638/-,,,12.09.2026,0,0,0,,Overdue,சம்பளம் 5 ம் தேதி வரும்,obc,hindu,M,B,
+CB280512-0039,Fatima Begum,+91 9000022063,Bengali,700001,18,2259,,,04.10.2026,3,3,1,no_answer,Pending,,st,muslim,F,C,A1
+CB493212-0040,Kavita Yadav,+91 9000085722,tamil,641001,19,6970,5,11,03.10.2026,3,3,0,,overdue,,st,hindu,F,C,C3
+CB538552-0041,Lakshmi Devi,+91 9000019518,HINDI,302001,191,66279,,,14.04.2026,2,0,1,no_answer,Overdue,,sc,hindu,F,C,C3
+CB635453-0042,Anita Patel,+91 9000054673,tamil,641001,26,8405,,,26.09.2026,0,0,0,,Overdue,सैलरी 28 तारीख को आएगी,st,hindu,F,A,C3
+CB601374-0043,Rekha Verma,+91 9000013764,tamil,641001,many,42070,1,11,,3,0,0,,Pending,,general,hindu,F,C,A1
+CB399423-0044,Suresh Yadav,+91 9000080654,Kannada,560068,49,Rs. 32243,1,6,03.09.2026,4,1,0,,,,sc,hindu,M,B,C3
+CB472036-0045,Shabana Sheikh,+91 9000089461,hindi,226001,103,56102,0,11,11.07.2026,5,0,0,,Overdue,,sc,muslim,F,A,
+CB803313-0046,Meena Kumari,+91 9000052662,Malayalam,682001,19,8873,,,03.10.2026,0,0,0,,Overdue,,st,hindu,F,B,
+CB642096-0047,Suresh Yadav,+91 9000091685,HINDI,302001,25,11569,3,12,27.09.2026,2,2,3,,overdue,,general,hindu,M,C,
+CB664091-0048,Kavita Yadav,+91 9000025294,Telugu,500001,141,46427,,,03.06.2026,1,1,1,,Legal,salary 28th ko aayega,obc,hindu,F,A,C3
+CB132514-0049,Nasreen Ansari,+91 9000043068,Marathi,400001,51,24730,0,3,01.09.2026,5,1,0,,Overdue,,sc,muslim,F,B,B2
+CB702736-0050,Raghu Iyer,+91 9000034341,Gujarati,380001,36,"₹ 9,964",3,19,16.09.2026,4,1,3,promise,Overdue,,st,hindu,M,B,
+CB224490-0051,Ramesh Kumar,+91 9000061046,tamil,641001,12,1870,0,18,10.10.2026,3,0,0,,Pending,,obc,hindu,M,B,C3
+CB816868-0052,Sunita Sharma,+91 9000032287,Marathi,400001,4,3405,,,18.10.2026,6,0,0,,,,st,hindu,F,B,B2
+CB700360-0053,Fatima Begum,+91 9000087915,Tamil,600001,5,6493,,,17.10.2026,4,1,0,,Overdue,,sc,muslim,F,B,C3
+CB865345-0054,Rekha Verma,+91 9000098234,Gujarati,380001,14,"₹ 9,320",3,6,08.10.2026,2,1,1,,Current,,general,hindu,F,C,B2
+CB766746-0055,Raghu Iyer,+91 9000071534,Tamil,600001,13,13774/-,9,19,09.10.2026,4,2,2,,Overdue,,obc,hindu,M,A,C3
+CB350433-0056,Manoj Gupta,+91 9000068329,Malayalam,682001,237,58015,,,27.02.2026,0,0,0,,Overdue,,st,hindu,M,C,C3
+CB488868-0057,Anita Patel,+91 9000052938,Kannada,560068,35,19084,14,16,17.09.2026,0,0,0,,overdue,,sc,hindu,F,A,A1
+CB109545-0058,Annie Joseph,+91 9000032727,Telugu,500001,8,"10,438.00",4,14,14.10.2026,2,1,0,,Overdue,கட்டிட்டேன் என்று சொல்கிறார்,st,christian,F,B,C3
+CB733945-0059,Suresh Yadav,+91 9000078161,Kannada,560068,240,38246,1,19,24.02.2026,3,0,0,,Pending,,sc,hindu,M,A,A1
+CB733945-0059,Suresh Yadav,+91 9000078161,Kannada,560068,240,38246,1,19,24.02.2026,3,0,0,,Pending,,sc,hindu,M,C,C3
+CB441899-0060,Simran Kaur,+91 9000073499,Marathi,400001,51,"₹ 36,449",15,22,01.09.2026,3,0,0,,Overdue,,general,sikh,F,C,
+CB352775-0061,Manoj Gupta,+91 9000078971,Hindi,110001,58,"21,251.00",0,8,25.08.2026,2,1,2,no_answer,Paid,,obc,hindu,M,C,B2
+CB307938-0062,Arjun Reddy,+91 9000085756,Bengali,700001,70,32637/-,7,20,13.08.2026,4,0,0,,Overdue,,obc,hindu,M,C,A1
+CB764672-0063,Anita Patel,+91 9000034366,HINDI,302001,73,14704/-,2,5,10.08.2026,1,0,0,,Overdue,,general,hindu,F,B,A1
+CB798854-0064,Kavita Yadav,+91 9000030303,kannada,560001,39,10152,1,12,13.09.2026,3,0,0,,Overdue,,general,hindu,F,B,A1
+CB711172-0065,Anita Patel,+91 9000072172,Tamil,600001,1,3935,1,7,21.10.2026,4,1,0,,Overdue,,obc,hindu,F,C,B2
+CB583669-0066,Peter Fernandes,+91 9000048322,Malayalam,682001,56,27854,,,27.08.2026,3,0,1,,Overdue,,general,christian,M,C,C3
+CB442450-0067,Meena Kumari,+91 9000031834,Marathi,400001,48,18243,7,9,04.09.2026,3,0,2,promise,Overdue,,obc,hindu,F,B,
+CB142695-0068,Manoj Gupta,+91 9000043640,Hindi,110001,1,18211,13,15,21.10.2026,4,3,2,callback,Overdue,,obc,hindu,M,A,
+CB422408-0069,Lakshmi Devi,+91 9000031755,Hindi,110001,79,7651,3,7,04.08.2026,0,0,0,,,,sc,hindu,F,A,
+CB871064-0070,Suresh Yadav,+91 9000027432,Malayalam,682001,199,-4500,4,12,06.04.2026,4,0,1,no_answer,Overdue,,sc,hindu,M,A,
+CB239521-0071,Vijay Patil,+91 9000027136,marathi,411001,8,8343,3,11,14.10.2026,2,0,0,,Overdue,,st,hindu,M,B,
+CB933114-0072,Sunita Sharma,+91 9000056037,kannada,560001,7,"15,831.00",7,15,15.10.2026,3,0,0,,overdue,,st,hindu,F,B,C3
+CB705057-0073,Vijay Patil,+91 9000077335,Malayalam,682001,25,2155,,,27.09.2026,2,1,0,,OVERDUE,,obc,hindu,M,B,B2
+CB521116-0074,John Mathew,+91 9000069959,Malayalam,682001,43,9893,,,09.09.2026,0,0,0,,Paid,,sc,christian,M,B,
+CB513526-0075,Manoj Gupta,+91 9000048413,Gujarati,380001,163,NA,,,12.05.2026,3,0,0,,Overdue,,general,hindu,M,C,
+CB686865-0076,Fatima Begum,+91 9000096757,Kannada,560068,209,57355,6,9,27.03.2026,0,0,0,,Overdue,phone uthaya nahi,general,muslim,F,C,C3
+CB553444-0077,Sunita Sharma,+91 9000093588,Marathi,400001,90,NA,1,13,24.07.2026,5,1,0,,Overdue,,obc,hindu,F,C,B2
+CB899569-0078,Salim Sheikh,+91 9000068743,Bengali,700001,161,47072,9,23,14.05.2026,1,1,0,,Overdue,,st,muslim,M,A,A1
+CB729507-0079,Arjun Reddy,+91 9000091181,tamil,641001,57,"12,601.00",4,5,26.08.2026,0,0,0,,Overdue,,sc,hindu,M,A,B2
+CB152094-0080,Raghu Iyer,+91 9000027721,kannada,560001,42,"₹ 20,574",21,23,10.09.2026,3,3,0,,Overdue,,obc,hindu,M,C,C3
+CB852896-0081,Arif Ansari,+91 9000010298,kannada,560001,13,14378,2,3,09.10.2026,1,1,1,,Overdue,,st,muslim,M,B,C3
+CB334432-0082,Sunita Sharma,+91 9000061267,Bengali,700001,24,15737,5,15,28.09.2026,5,0,0,,Overdue,,sc,hindu,F,B,A1
+CB295119-0083,Sunita Sharma,+91 9000058110,tamil,641001,47,29110,11,16,05.09.2026,2,1,0,,Overdue,,sc,hindu,F,C,C3
+CB679970-0084,Kavita Yadav,+91 9000027127,hindi,226001,23,"₹ 6,540",16,24,29.09.2026,3,2,0,,Overdue,,sc,hindu,F,B,
+CB799065-0085,Vijay Patil,+91 9000018656,Gujarati,380001,58,16372,2,4,25.08.2026,2,1,0,,Overdue,,sc,hindu,M,A,C3
+CB824612-0086,Lakshmi Devi,+91 9000091550,tamil,641001,64,Rs. 18996,,,19.08.2026,3,1,1,no_answer,Pending,,st,hindu,F,C,B2
+CB665052-0087,Raghu Iyer,+91 9000029123,Marathi,400001,17,"₹ 5,092",3,6,05.10.2026,1,0,0,,Pending,,obc,hindu,M,C,
+CB694399-0088,Ramesh Kumar,not available,HINDI,302001,9,Rs. 13119,11,20,13.10.2026,1,0,1,no_answer,,,st,hindu,M,C,A1
+CB227900-0089,Suresh Yadav,+91 9000060494,kannada,560001,57,31426,1,11,26.08.2026,3,1,1,no_answer,OVERDUE,,general,hindu,M,B,A1
+CB253806-0090,Meena Kumari,+91 9000089835,Gujarati,380001,144,88108,13,15,31.05.2026,0,0,2,callback,Overdue,,general,hindu,F,C,
+CB387974-0091,Meena Kumari,+91 9000010376,marathi,411001,12,4587,2,21,10.10.2026,6,1,1,callback,OVERDUE,,general,hindu,F,B,
+CB587268-0092,Shabana Sheikh,+91 9000013175,marathi,411001,3 months,17679,4,21,,4,0,0,,Paid,,obc,muslim,F,A,C3
+CB545978-0093,Fatima Begum,+91 9000097337,marathi,411001,51,Rs. 14128,,,01.09.2026,1,1,0,,Pending,,st,muslim,F,A,C3
+CB469995-0094,Sunita Sharma,+91 9000016213,Kannada,560068,24,4511,17,19,28.09.2026,0,0,0,,Overdue,,sc,hindu,F,A,
+CB112508-0095,Rekha Verma,+91 9000084548,hi,800001,55,35364,8,14,28.08.2026,4,3,0,,,,obc,hindu,F,B,A1
+CB844118-0096,Yusuf Qureshi,+91 9000082819,Hindi,110001,9,"9,764.00",,,13.10.2026,2,1,0,,overdue,ghar pe nahi tha,st,muslim,M,A,B2
+CB922047-0097,Ramesh Kumar,+91 9000089650,Marathi,400001,26,9509,1,11,26.09.2026,2,0,1,,Overdue,,general,hindu,M,B,B2
+CB545805-0098,Rekha Verma,+91 9000019819,hindi,226001,39,35886,1,9,13.09.2026,3,1,0,,Overdue,,obc,hindu,F,C,C3
+CB736646-0099,Manoj Gupta,+91 9000020913,Marathi,400001,16,6618,15,15,06.10.2026,3,2,1,promise,Pending,branch mein de diya,sc,hindu,M,C,A1
+CB600849-0100,Raghu Iyer,+91 9000085594,Malayalam,682001,many,25794,,,,0,0,0,,Overdue,கட்டிட்டேன் என்று சொல்கிறார்,sc,hindu,M,B,B2
+CB884102-0101,Manoj Gupta,+91 9000095999,tamil,641001,77,"₹ 32,069",,,06.08.2026,4,3,0,,Overdue,,st,hindu,M,C,A1
+CB652146-0102,Kavita Yadav,+91 9000069072,Bengali,700001,53,"₹ 12,482",8,12,30.08.2026,0,0,1,callback,OVERDUE,,st,hindu,F,B,
+CB994899-0103,Vijay Patil,+91 9000062061,Tamil,600001,86,"₹ 46,643",4,10,28.07.2026,5,2,0,,Overdue,,obc,hindu,M,C,B2
+CB166499-0104,Mary Thomas,+91 12345,Bengali,700001,81,45829,3,11,02.08.2026,6,1,0,,Pending,,sc,christian,F,B,B2
+CB509440-0105,Manoj Gupta,+91 9000030834,Marathi,400001,23,Rs. 17188,10,23,29.09.2026,2,1,0,,OVERDUE,,sc,hindu,M,B,B2
+CB739798-0106,Vijay Patil,+91 9000051536,Hindi,110001,68,40763,,,15.08.2026,4,2,0,,Pending,,general,hindu,M,C,C3
+CB535729-0107,Salim Sheikh,+91 9000041162,hindi,226001,190,102611,,,15.04.2026,4,1,2,promise,Sub-standard?,,sc,muslim,M,B,
+CB502455-0108,Lakshmi Devi,+91 9000033292,Tamil,600001,,16766,,,24.09.2026,0,0,1,,,,st,hindu,F,A,B2
+CB683935-0109,Fatima Begum,+91 9000087509,Hindi,110001,14,8002,11,14,08.10.2026,4,2,1,promise,Overdue,salary 7th ko aayega,general,muslim,F,B,
+CB570153-0110,Raghu Iyer,+91 9000047059,Gujarati,380001,12,14727,14,15,10.10.2026,0,0,0,,Pending,,st,hindu,M,C,B2
+CB457139-0111,Sunita Sharma,+91 9000049680,hindi,226001,48,"₹ 9,286",43,17,04.09.2026,1,0,1,,Overdue,,general,hindu,F,A,C3
+CB683772-0112,Raghu Iyer,+91 9000058544,tamil,641001,69,"39,211.00",,,14.08.2026,1,1,1,no_answer,Overdue,,sc,hindu,M,C,A1
+CB432973-0113,Suresh Yadav,+91 9000055703,Tamil,600001,48,13262,,,04.09.2026,5,1,0,,overdue,,st,hindu,M,B,A1
+CB455504-0114,Manoj Gupta,+91 9000034635,marathi,411001,17,"12,283.00",,,05.10.2026,1,0,0,,Overdue,,st,hindu,M,B,C3
+CB774594-0115,Lakshmi Devi,+91 9000047730,Bengali,700001,176,86741,2,21,29.04.2026,4,0,0,,Pending,,general,hindu,F,C,C3
+CB287514-0116,Manoj Gupta,+91 9000022737,hi,800001,24,NA,4,11,28.09.2026,0,0,0,,Pending,,st,hindu,M,A,B2
+CB119372-0117,Suresh Yadav,+91 9000082915,HINDI,302001,21,"9,044.00",42,5,01.10.2026,5,0,0,,OVERDUE,phone uthaya nahi,obc,hindu,M,A,
+CB540213-0118,Raghu Iyer,+91 9000065274,Bengali,700001,20,-4500,16,20,02.10.2026,0,0,0,,Overdue,,sc,hindu,M,B,
+CB141515-0119,Nasreen Ansari,+91 9000063422,Tamil,600001,58,21950,10,19,25.08.2026,0,0,0,,Overdue,வேலை போச்சு,general,muslim,F,A,C3
+CB614591-0120,Mary Thomas,+91 9000036355,Telugu,500001,72,43823,0,7,11.08.2026,2,0,1,callback,Overdue,,st,christian,F,B,A1
+CB560341-0121,Manoj Gupta,+91 9000034805,Tamil,600001,19,"15,731.00",11,14,03.10.2026,0,0,0,,Overdue,,obc,hindu,M,A,
+CB220528-0122,Yusuf Qureshi,+91 9000042776,Bengali,700001,21,4626,15,23,01.10.2026,1,0,0,,Overdue,,sc,muslim,M,C,
+CB105194-0123,Manoj Gupta,+91 9000089324,Gujarati,380001,237,Rs. 23528,4,7,27.02.2026,3,3,0,,,,st,hindu,M,C,
+CB404760-0124,Mary Thomas,+91 9000087768,Tamil,600001,35,12982,6,20,17.09.2026,3,2,1,promise,Overdue,,obc,christian,F,C,
+CB562687-0125,Vijay Patil,+91 9000083397,Marathi,400001,4,10027,2,4,18.10.2026,4,1,0,,overdue,,sc,hindu,M,A,A1
+CB525956-0126,Ayesha Khan,+91 9000047705,HINDI,302001,9,"15,192.00",5,9,13.10.2026,0,0,0,,Overdue,ghar pe nahi tha,sc,muslim,F,B,C3
+CB880723-0127,Imran Khan,+91 9000020352,Gujarati,380001,66,33480/-,4,14,17.08.2026,4,0,0,,,,sc,muslim,M,B,B2
+CB994453-0128,Ramesh Kumar,+91 9000097662,Gujarati,380001,10,7162,7,8,12.10.2026,1,0,0,,Pending,,general,hindu,M,A,B2
+CB608336-0129,Raghu Iyer,+91 9000069077,Gujarati,380001,169,Rs. 65940,3,11,06.05.2026,1,1,2,promise,Overdue,rnr,general,hindu,M,B,
+CB252291-0130,Anita Patel,+91 9000094457,hi,800001,74,"45,429.00",3,23,09.08.2026,2,0,1,no_answer,Overdue,,obc,hindu,F,A,B2
+CB479629-0131,Peter Fernandes,not available,hindi,226001,10,4124,2,7,12.10.2026,1,1,0,,Overdue,,general,christian,M,A,C3
+CB273810-0132,Kavita Yadav,+91 9000042869,tamil,641001,4,Rs. 15973,4,19,18.10.2026,1,0,0,,OVERDUE,,st,hindu,F,A,
+CB853127-0133,Arif Ansari,+91 9000077590,Bengali,700001,108,13352,4,12,06.07.2026,1,0,2,,overdue,,st,muslim,M,A,C3
+CB171238-0134,Arjun Reddy,+91 9000023530,Kannada,560068,8,Rs. 5955,4,6,14.10.2026,0,0,0,,OVERDUE,,sc,hindu,M,C,C3
+CB505478-0135,Suresh Yadav,+91 9000078316,Malayalam,682001,35,6943,4,18,17.09.2026,0,0,2,no_answer,Overdue,,sc,hindu,M,C,
+CB458867-0136,Arif Ansari,+91 9000030022,tamil,641001,68,"₹ 11,607",4,24,15.08.2026,1,0,2,callback,Overdue,சம்பளம் 5 ம் தேதி வரும்,obc,muslim,M,C,B2
+CB790907-0137,Shabana Sheikh,+91 9000061035,Marathi,400001,19,"₹ 9,666",,,03.10.2026,3,2,1,promise,Pending,,general,muslim,F,A,A1
+CB985555-0138,Rekha Verma,+91 9000053512,Kannada,560068,90,61258,16,23,24.07.2026,3,3,2,,Overdue,,sc,hindu,F,C,
+CB133069-0139,Nasreen Ansari,+91 9000011058,hindi,226001,43,22646,5,9,09.09.2026,1,0,0,,Paid,bola 7 tarikh ko de dunga,st,muslim,F,C,A1
+CB396830-0140,Suresh Yadav,+91 9000083641,Gujarati,380001,21,8448,,,01.10.2026,1,1,0,,Overdue,,obc,hindu,M,B,
+CB681886-0141,Vijay Patil,+91 9000093949,Tamil,600001,75,"15,691.00",,,08.08.2026,3,1,0,,Current,,obc,hindu,M,A,C3
+CB636908-0142,Salim Sheikh,+91 9000068847,Tamil,600001,29,"14,255.00",11,16,23.09.2026,1,1,0,,Overdue,,obc,muslim,M,B,A1
+CB233089-0143,Peter Fernandes,+91 9000035403,Bengali,700001,26,4796,2,5,26.09.2026,3,0,1,,overdue,सैलरी 10 तारीख को आएगी,st,christian,M,A,
+CB571674-0144,Vijay Patil,+91 9000067362,tamil,641001,206,Rs. 86382,1,3,30.03.2026,4,1,1,,Pending,,general,hindu,M,C,B2
+CB331734-0145,Manoj Gupta,+91 9000070963,kannada,560001,5,6953,8,19,17.10.2026,1,1,1,,Overdue,,st,hindu,M,C,
+CB784664-0146,Lakshmi Devi,+91 9000014421,marathi,411001,10,9028,2,9,12.10.2026,6,0,0,,overdue,,st,hindu,F,B,B2
+CB727619-0147,Fatima Begum,+91 9000090985,Tamil,600001,8,9798,19,20,14.10.2026,2,2,0,,Overdue,,st,muslim,F,A,
+CB283102-0148,Rekha Verma,+91 9000012975,Kannada,560068,27,8196/-,0,24,25.09.2026,4,0,1,callback,OVERDUE,,sc,hindu,F,B,C3
+CB433478-0149,Vijay Patil,+91 9000028957,hi,800001,57,10536/-,,,26.08.2026,4,1,0,,Overdue,,st,hindu,M,C,B2
+CB269691-0150,Sunita Sharma,+91 9000039006,Malayalam,682001,57,"19,811.00",7,12,26.08.2026,2,1,0,,OVERDUE,,sc,hindu,F,A,A1
+CB269691-0150,Sunita Sharma,+91 9000039006,Malayalam,682001,57,"19,811.00",7,12,26.08.2026,2,1,0,,OVERDUE,சம்பளம் 5 ம் தேதி வரும்,sc,hindu,F,B,B2
+CB120099-0151,Vijay Patil,+91 9000021172,Gujarati,380001,6,9691,4,6,16.10.2026,3,1,0,,overdue,,sc,hindu,M,C,C3
+CB394707-0152,Salim Sheikh,+91 9000028732,Tamil,600001,12,"₹ 14,970",,,10.10.2026,1,1,1,callback,Overdue,,sc,muslim,M,C,B2
+CB657095-0153,Annie Joseph,+91 9000078387,Tamil,600001,7,"16,518.00",,,15.10.2026,4,1,0,,,,obc,christian,F,A,C3
+CB320447-0154,Gurpreet Singh,+91 9000082786,Bengali,700001,13,7618,,,09.10.2026,1,1,2,no_answer,OVERDUE,,sc,sikh,M,C,A1
+CB484849-0155,Manoj Gupta,+91 9000087000,Kannada,560068,66,43909,3,10,17.08.2026,1,1,2,,Overdue,,obc,hindu,M,C,C3
+CB427435-0156,Imran Khan,+91 9000076183,Hindi,110001,30,,8,12,22.09.2026,0,0,1,,Overdue,,general,muslim,M,B,
+CB126468-0157,Arjun Reddy,+91 9000098665,hindi,226001,197,66666,1,6,08.04.2026,4,0,0,,Pending,,sc,hindu,M,C,B2
+CB534911-0158,Harpreet Kaur,+91 9000066278,kannada,560001,27,"₹ 15,645",8,10,25.09.2026,2,2,0,,OVERDUE,,obc,sikh,F,C,B2
+CB409282-0159,Raghu Iyer,+91 9000061905,Gujarati,380001,4,Rs. 13079,,,18.10.2026,0,0,0,,overdue,,sc,hindu,M,C,C3
+CB846457-0160,Lakshmi Devi,+91 9000014284,Telugu,500001,27,Rs. 7614,5,15,25.09.2026,4,2,0,,Paid,,st,hindu,F,B,C3
+CB312619-0161,Ramesh Kumar,+91 9000074248,Hindi,110001,59,36362,4,5,24.08.2026,2,0,2,,Overdue,,obc,hindu,M,B,B2
+CB820687-0162,Meena Kumari,+91 9000087671,Bengali,700001,1,"₹ 1,902",,,21.10.2026,1,1,0,,overdue,கட்டிட்டேன் என்று சொல்கிறார்,st,hindu,F,C,B2
+CB416953-0163,Arjun Reddy,+91 9000079977,Hindi,110001,59,6338,9,10,24.08.2026,0,0,1,promise,Legal,,general,hindu,M,C,A1
+CB512860-0164,Shabana Sheikh,+91 9000024428,Gujarati,380001,62,"₹ 5,439",,,21.08.2026,4,2,0,,overdue,,sc,muslim,F,C,A1
+CB421906-0165,Rekha Verma,+91 9000077297,kannada,560001,34,4063,2,12,18.09.2026,5,1,0,,Overdue,,sc,hindu,F,A,C3
+CB894533-0166,Suresh Yadav,+91 9000050823,hi,800001,37,,2,18,15.09.2026,5,0,1,callback,overdue,,obc,hindu,M,A,
+CB458320-0167,Rekha Verma,+91 9000097120,hi,800001,89,24779/-,2,23,25.07.2026,3,0,0,,Overdue,,general,hindu,F,A,B2
+CB973918-0168,Manoj Gupta,+91 9000080616,HINDI,302001,21,6966/-,4,9,01.10.2026,3,1,3,,Overdue,phone uthaya nahi,general,hindu,M,C,
+CB498443-0169,Shabana Sheikh,+91 9000078897,Gujarati,380001,8,Rs. 18211,,,14.10.2026,0,0,0,,Overdue,,sc,muslim,F,B,C3
+CB854641-0170,Meena Kumari,+91 9000061577,kannada,560001,5,8643/-,3,6,17.10.2026,3,2,0,,Overdue,,st,hindu,F,B,
+CB992145-0171,Arif Ansari,+91 9000029234,Marathi,400001,65,"33,443.00",0,10,18.08.2026,3,0,2,no_answer,Overdue,,sc,muslim,M,A,C3
+CB661627-0172,Meena Kumari,+91 9000050796,Bengali,700001,42,20108,,,10.09.2026,4,0,1,promise,Overdue,,general,hindu,F,A,
+CB914837-0173,Kavita Yadav,+91 9000043561,Telugu,500001,24,14911,9,14,28.09.2026,3,1,1,no_answer,overdue,,general,hindu,F,B,B2
+CB858933-0174,Arjun Reddy,+91 9000088365,Gujarati,380001,78,29602,2,15,05.08.2026,3,1,0,,Legal,,sc,hindu,M,A,
+CB650106-0175,Vijay Patil,+91 9000026376,Malayalam,682001,108,"46,912.00",0,15,06.07.2026,2,0,0,,Overdue,,general,hindu,M,B,
+CB691038-0176,Sunita Sharma,+91 9000026225,marathi,411001,3,9423,,,19.10.2026,0,0,0,,Overdue,,st,hindu,F,A,C3
+CB498675-0177,Salim Sheikh,+91 9000037029,HINDI,302001,20,"5,670.00",4,6,02.10.2026,0,0,0,,Pending,सैलरी 25 तारीख को आएगी,obc,muslim,M,C,A1
+CB790505-0178,Shabana Sheikh,+91 9000017354,Gujarati,380001,6,11790/-,6,11,16.10.2026,2,1,0,,overdue,,st,muslim,F,B,B2
+CB201116-0179,Ramesh Kumar,+91 9000020508,kannada,560001,23,9722/-,3,8,29.09.2026,3,0,0,,OVERDUE,,sc,hindu,M,B,
+CB806225-0180,Manoj Gupta,+91 9000063154,kannada,560001,219,49083,,,17.03.2026,0,0,1,callback,Pending,,obc,hindu,M,B,C3
+CB555619-0181,Lakshmi Devi,+91 9000060013,hindi,226001,22,Rs. 5552,,,30.09.2026,1,0,2,promise,Overdue,,sc,hindu,F,A,B2
+CB787283-0182,Kavita Yadav,+91 9000074134,Bengali,700001,26,16510,6,23,26.09.2026,2,0,0,,OVERDUE,,obc,hindu,F,C,A1
+CB442730-0183,Grace D'Souza,+91 9000050287,hi,800001,233,"142,543.00",,,03.03.2026,3,3,0,,Overdue,,general,christian,F,C,B2
+CB981962-0184,Shabana Sheikh,+91 9000056833,hindi,226001,37,32050,1,17,15.09.2026,5,0,0,,,,sc,muslim,F,C,B2
+CB988120-0185,Vijay Patil,+91 9000078036,tamil,641001,76,"8,003.00",,,07.08.2026,3,3,3,,Pending,,general,hindu,M,C,
+CB354401-0186,Suresh Yadav,+91 9000010412,Telugu,500001,7,11041,,,15.10.2026,4,0,0,,Overdue,,sc,hindu,M,C,A1
+CB136896-0187,Arif Ansari,+91 9000064786,Hindi,110001,43,13857/-,4,18,09.09.2026,3,1,1,callback,Overdue,,st,muslim,M,A,A1
+CB827499-0188,Fatima Begum,+91 9000019246,Gujarati,380001,23,Rs. 9616,,,29.09.2026,1,0,0,,Paid,,obc,muslim,F,C,B2
+CB200445-0189,Anita Patel,+91 9000010149,hindi,226001,35,Rs. 8681,,,17.09.2026,6,1,0,,overdue,,general,hindu,F,B,A1
+CB877332-0190,Ayesha Khan,+91 9000055146,Gujarati,380001,212,100445,8,11,24.03.2026,4,3,1,callback,Overdue,,general,muslim,F,C,A1
+CB892621-0191,Yusuf Qureshi,+91 9000084892,marathi,411001,23,Rs. 10327,9,23,29.09.2026,2,1,0,,Sub-standard?,,general,muslim,M,B,C3
+CB483463-0192,Shabana Sheikh,+91 9000029590,HINDI,302001,34,"20,890.00",0,3,18.09.2026,2,0,0,,Overdue,,general,muslim,F,C,A1
+CB290771-0193,Ramesh Kumar,+91 9000052373,marathi,411001,21,17745/-,3,8,01.10.2026,6,0,1,callback,Overdue,,sc,hindu,M,A,
+CB354082-0194,Shabana Sheikh,+91 9000093297,Hindi,110001,40,"15,499.00",0,20,12.09.2026,1,0,0,,W/O,,sc,muslim,F,B,C3
+CB255936-0195,Sunita Sharma,+91 9000021624,HINDI,302001,28,Rs. 15561,3,9,24.09.2026,4,0,0,,overdue,,sc,hindu,F,B,C3
+CB246596-0196,Ayesha Khan,+91 9000071783,Bengali,700001,16,11895,4,5,06.10.2026,3,2,3,promise,OVERDUE,सैलरी 5 तारीख को आएगी,sc,muslim,F,A,C3
+CB821648-0197,Lakshmi Devi,+91 12345,Malayalam,682001,94,"14,413.00",,,20.07.2026,3,0,0,,Pending,,general,hindu,F,C,
+CB690520-0198,Arif Ansari,+91 9000086019,Hindi,110001,74,35953,,,09.08.2026,2,0,1,callback,overdue,,general,muslim,M,C,C3
+CB221396-0199,Arif Ansari,+91 9000037280,marathi,411001,35,"12,450.00",,,17.09.2026,2,2,1,no_answer,overdue,,obc,muslim,M,C,B2
+CB857229-0200,Raghu Iyer,+91 9000066981,Malayalam,682001,147,59725,4,15,28.05.2026,4,2,0,,overdue,,obc,hindu,M,A,
+CB374759-0201,Vijay Patil,+91 9000078772,Kannada,560068,200,"₹ 66,699",0,12,05.04.2026,4,1,0,,Current,,general,hindu,M,C,B2
+CB648506-0202,Meena Kumari,+91 9000040543,marathi,411001,9,16973,5,20,13.10.2026,0,0,0,,Overdue,,general,hindu,F,C,B2
+CB204975-0203,Ayesha Khan,+91 9000015774,Gujarati,380001,3,"₹ 16,307",,,19.10.2026,1,1,1,,Overdue,,obc,muslim,F,C,A1
+CB924977-0204,Vijay Patil,+91 9000036398,hindi,226001,60,"47,689.00",,,23.08.2026,6,0,2,no_answer,overdue,,sc,hindu,M,B,B2
+CB137421-0205,Manoj Gupta,+91 9000073920,tamil,641001,27,"₹ 6,966",,,25.09.2026,4,3,1,promise,OVERDUE,,general,hindu,M,A,C3
+CB900911-0206,Rekha Verma,+91 9000015510,Bengali,700001,25,"₹ 9,776",3,11,27.09.2026,3,0,1,callback,Pending,,sc,hindu,F,B,C3
+CB461090-0207,Vijay Patil,+91 9000013284,tamil,641001,,"₹ 17,890",4,14,11.10.2026,3,0,0,,Overdue,,general,hindu,M,A,
+CB785672-0208,Anita Patel,+91 9000085218,Gujarati,380001,4,18245,3,24,18.10.2026,0,0,1,callback,OVERDUE,कल ब्रांच में जमा कर दिया,sc,hindu,F,C,C3
+CB426337-0209,Yusuf Qureshi,+91 9000040315,Telugu,500001,20,14101,3,11,02.10.2026,4,2,1,promise,Overdue,,sc,muslim,M,B,C3
+CB424714-0210,Yusuf Qureshi,+91 9000081840,Gujarati,380001,74,47195,0,20,09.08.2026,3,0,1,promise,Pending,,obc,muslim,M,C,C3
+CB530215-0211,Meena Kumari,+91 9000012044,Bengali,700001,33,20261,6,15,19.09.2026,0,0,0,,OVERDUE,,sc,hindu,F,A,
+CB710481-0212,Anita Patel,+91 9000085293,kannada,560001,70,41972,1,9,13.08.2026,1,0,0,,Overdue,,obc,hindu,F,C,B2
+CB477679-0213,Suresh Yadav,+91 9000042027,Bengali,700001,4,6595,12,21,18.10.2026,1,1,2,no_answer,OVERDUE,,sc,hindu,M,C,
+CB503810-0214,Raghu Iyer,+91 9000092796,hindi,226001,76,"₹ 44,948",7,16,07.08.2026,6,2,1,,Pending,,sc,hindu,M,B,C3
+CB878790-0215,Meena Kumari,+91 9000097563,Telugu,500001,81,"₹ 20,166",4,9,02.08.2026,0,0,0,,overdue,,st,hindu,F,B,
+CB121233-0216,Suresh Yadav,+91 9000097203,Gujarati,380001,89,42353,2,6,25.07.2026,4,4,1,,Overdue,सैलरी 10 तारीख को आएगी,general,hindu,M,C,B2
+CB756351-0217,Rekha Verma,+91 9000027417,Bengali,700001,55,Rs. 22913,,,28.08.2026,0,0,0,,overdue,नौकरी चली गई,general,hindu,F,C,B2
+CB344050-0218,Kavita Yadav,+91 9000086773,Gujarati,380001,14,,4,8,08.10.2026,0,0,0,,Overdue,,obc,hindu,F,B,B2
+CB712302-0219,Suresh Yadav,+91 9000016253,tamil,641001,15,16274,,,07.10.2026,0,0,0,,Paid,,st,hindu,M,B,C3
+CB172240-0220,Rekha Verma,+91 9000059658,hi,800001,4,"₹ 4,120",7,17,18.10.2026,4,0,0,,Overdue,,st,hindu,F,C,C3
+CB417254-0221,Lakshmi Devi,+91 9000020474,Gujarati,380001,57,18434,,,26.08.2026,2,2,0,,Pending,,st,hindu,F,C,B2
+CB856350-0222,Manoj Gupta,+91 9000029326,Malayalam,682001,3,15236/-,,,19.10.2026,3,2,1,callback,Overdue,,general,hindu,M,A,
+CB511397-0223,Manoj Gupta,+91 9000044927,Marathi,400001,16,Rs. 8149,2,3,06.10.2026,2,1,0,,Overdue,,sc,hindu,M,C,A1
+CB340585-0224,Vijay Patil,+91 9000083194,kannada,560001,87,30010,3,17,27.07.2026,1,0,0,,Overdue,,obc,hindu,M,B,B2
+CB366709-0225,Anita Patel,+91 9000090513,Malayalam,682001,28,13956,7,18,24.09.2026,0,0,0,,overdue,,st,hindu,F,B,A1
+CB708780-0226,Gurpreet Singh,+91 9000039256,marathi,411001,,"₹ 33,984",5,20,29.04.2026,4,0,1,,Pending,,st,sikh,M,B,C3
+CB721462-0227,Raghu Iyer,+91 9000094842,kannada,560001,42,13003,,,10.09.2026,0,0,2,no_answer,overdue,amount galat hai bol raha hai,sc,hindu,M,A,B2
+CB779615-0228,Manoj Gupta,+91 9000033636,Kannada,560068,37,31459,3,5,15.09.2026,0,0,0,,overdue,,st,hindu,M,B,B2
+CB739622-0229,Kavita Yadav,+91 9000098929,Hindi,110001,80,11355,4,14,03.08.2026,1,0,1,,overdue,,general,hindu,F,A,A1
+CB222424-0230,Suresh Yadav,+91 9000070476,tamil,641001,48,20318,,,04.09.2026,2,2,0,,Overdue,,general,hindu,M,B,B2
+CB990672-0231,Annie Joseph,+91 9000057170,Malayalam,682001,156,48301,2,14,19.05.2026,6,1,1,,Paid,,st,christian,F,B,
+CB673933-0232,Arjun Reddy,+91 9000039884,hindi,226001,37,33597,1,3,15.09.2026,4,0,0,,Overdue,,obc,hindu,M,B,C3
+CB217374-0233,Yusuf Qureshi,+91 9000061198,hindi,226001,6,"15,559.00",3,21,16.10.2026,2,0,0,,overdue,ghar pe nahi tha,obc,muslim,M,B,C3
+CB799939-0234,Lakshmi Devi,+91 9000098870,Gujarati,380001,30,"21,415.00",,,22.09.2026,3,1,1,promise,Overdue,கட்டிட்டேன் என்று சொல்கிறார்,obc,hindu,F,A,C3
+CB290549-0235,Manoj Gupta,+91 9000053548,hindi,226001,8,7504,12,24,14.10.2026,3,2,1,no_answer,OVERDUE,,sc,hindu,M,C,
+CB980971-0236,Rekha Verma,+91 9000013116,Bengali,700001,79,"6,450.00",8,14,04.08.2026,4,3,0,,overdue,,st,hindu,F,B,B2
+CB505494-0237,Sunita Sharma,+91 9000092319,marathi,411001,38,"₹ 7,464",3,14,14.09.2026,0,0,0,,Overdue,,st,hindu,F,C,A1
+CB231411-0238,Mary Thomas,+91 9000093781,Kannada,560068,14,-4500,3,11,08.10.2026,4,2,0,,Overdue,,st,christian,F,C,C3
+CB896710-0239,Ramesh Kumar,+91 9000025593,Bengali,700001,76,19511,7,9,07.08.2026,4,2,0,,,,st,hindu,M,A,B2
+CB737184-0240,Meena Kumari,+91 9000033860,hindi,226001,10,14044,,,12.10.2026,3,3,2,,Overdue,,st,hindu,F,A,C3
+CB717853-0241,Sunita Sharma,+91 9000095448,Tamil,600001,15,4502,6,8,07.10.2026,1,0,0,,Overdue,,sc,hindu,F,B,C3
+CB189789-0242,Ramesh Kumar,+91 9000072993,Marathi,400001,237,138516,5,19,27.02.2026,1,0,2,,Pending,,obc,hindu,M,B,B2
+CB189789-0242,Ramesh Kumar,+91 9000072993,Marathi,400001,237,139016,5,19,27.02.2026,1,0,2,,Pending,,obc,hindu,M,B,A1
+CB108005-0243,Rekha Verma,+91 9000052742,kannada,560001,8,"18,655.00",5,12,14.10.2026,0,0,3,promise,Pending,,obc,hindu,F,B,C3
+CB638693-0244,Thomas Varghese,+91 9000028697,Bengali,700001,45,"8,249.00",5,16,07.09.2026,4,0,2,no_answer,Overdue,,sc,christian,M,C,A1
+CB232671-0245,Manoj Gupta,+91 9000084990,tamil,641001,1,"11,597.00",10,14,21.10.2026,2,1,2,no_answer,Overdue,,general,hindu,M,A,B2
+CB293132-0246,Kavita Yadav,+91 9000099509,Marathi,400001,78,"₹ 33,985",4,12,05.08.2026,6,0,3,,OVERDUE,,obc,hindu,F,C,B2
+CB562677-0247,Vijay Patil,+91 9000098400,Malayalam,682001,7,Rs. 17744,,,15.10.2026,1,0,2,,Overdue,வேலை போச்சு,sc,hindu,M,C,
+CB318820-0248,Ramesh Kumar,+91 9000061393,Gujarati,380001,10,16558,20,23,12.10.2026,1,1,0,,Overdue,,obc,hindu,M,B,C3
+CB991948-0249,Kavita Yadav,+91 9000098714,Malayalam,682001,14,6429,6,8,08.10.2026,2,2,1,no_answer,Overdue,"naukri chali gayi, paise nahi hai",obc,hindu,F,B,C3
+CB441218-0250,Lakshmi Devi,+91 9000080749,Marathi,400001,5,abc,2,10,17.10.2026,1,0,0,,Overdue,,st,hindu,F,A,B2
+CB333350-0251,Sunita Sharma,+91 9000050724,kannada,560001,9,7897/-,6,16,13.10.2026,4,3,0,,overdue,,general,hindu,F,A,A1
+CB995735-0252,John Mathew,+91 9000071643,Malayalam,682001,70,46280/-,2,15,13.08.2026,0,0,0,,Legal,,st,christian,M,B,
+CB950249-0253,John Mathew,+91 9000024322,Tamil,600001,83,15805,12,18,31.07.2026,0,0,0,,Overdue,,st,christian,M,C,A1
+CB477267-0254,Rekha Verma,+91 9000073625,Telugu,500001,79,6565,5,8,04.08.2026,0,0,0,,overdue,,sc,hindu,F,C,B2
+CB477267-0254,Rekha Verma,+91 9000073625,Telugu,500001,79,7065,5,8,04.08.2026,0,0,0,,overdue,,sc,hindu,F,C,
+CB434663-0255,Imran Khan,+91 9000065351,Hindi,110001,23,14592,16,18,29.09.2026,0,0,0,,Overdue,,obc,muslim,M,B,B2
+CB495607-0256,Rekha Verma,+91 9000028439,Tamil,600001,61,"₹ 8,667",,,22.08.2026,1,0,0,,Pending,,obc,hindu,F,B,A1
+CB395763-0257,Ramesh Kumar,+91 9000077016,hindi,226001,204,35533,16,20,01.04.2026,0,0,1,callback,Overdue,,st,hindu,M,C,A1
+CB116242-0258,Lakshmi Devi,+91 9000027646,hindi,226001,24,NA,,,28.09.2026,3,0,3,,Overdue,,obc,hindu,F,A,B2
+CB577457-0259,Raghu Iyer,+91 9000029263,hindi,226001,86,NA,,,28.07.2026,4,0,0,,Overdue,,obc,hindu,M,C,A1
+CB926419-0260,Raghu Iyer,+91 9000099174,Gujarati,380001,101,34036/-,5,10,13.07.2026,4,1,2,promise,Pending,,obc,hindu,M,C,C3
+CB675577-0261,Anita Patel,+91 9000027726,hindi,226001,57,5006,12,15,26.08.2026,0,0,0,,Pending,,st,hindu,F,B,B2
+CB661751-0262,Manoj Gupta,+91 9000037606,kannada,560001,5,8028,,,17.10.2026,4,3,3,,Pending,,sc,hindu,M,C,A1
+CB186667-0263,Arjun Reddy,+91 9000022040,Marathi,400001,49,7737,,,03.09.2026,4,2,1,callback,Pending,,sc,hindu,M,B,
+CB621646-0264,Ayesha Khan,+91 9000040177,Tamil,600001,197,Rs. 29781,,,08.04.2026,3,2,0,,Current,bola 5 tarikh ko de dunga,sc,muslim,F,C,A1
+CB218090-0265,Suresh Yadav,+91 9000026947,Telugu,500001,14,Rs. 12979,10,16,08.10.2026,3,1,3,promise,,,obc,hindu,M,A,A1
+CB173286-0266,Suresh Yadav,+91 9000095277,Marathi,400001,104,"43,968.00",10,15,10.07.2026,3,2,0,,OVERDUE,,obc,hindu,M,B,C3
+CB521216-0267,Thomas Varghese,+91 9000016450,hi,800001,51,-4500,,,01.09.2026,2,1,0,,overdue,,st,christian,M,A,C3
+CB173857-0268,Raghu Iyer,+91 9000019947,Tamil,600001,2,11541/-,,,20.10.2026,4,0,3,,Overdue,,general,hindu,M,A,A1
+CB648140-0269,Raghu Iyer,+91 9000044576,hindi,226001,2,"13,383.00",5,12,20.10.2026,0,0,0,,Overdue,,general,hindu,M,B,A1
+CB773673-0270,Harpreet Kaur,+91 9000078371,hindi,226001,182,20864,1,4,23.04.2026,4,4,0,,Overdue,,sc,sikh,F,C,B2
+CB382492-0271,Grace D'Souza,+91 9000059319,Kannada,560068,23,9009,,,29.09.2026,3,1,0,,Overdue,,general,christian,F,C,B2
+CB628750-0272,Vijay Patil,+91 9000063886,Kannada,560068,42,Rs. 13517,9,20,10.09.2026,0,0,0,,,,st,hindu,M,C,A1
+CB234455-0273,Fatima Begum,+91 9000076447,Telugu,500001,19,16721,,,03.10.2026,0,0,2,promise,Overdue,,sc,muslim,F,B,A1
+CB234455-0273,Fatima Begum,+91 9000076447,Telugu,500001,19,16721,,,03.10.2026,0,0,2,promise,Overdue,,sc,muslim,F,B,A1
+CB569598-0274,Harpreet Kaur,+91 9000031009,hindi,226001,129,73789,8,15,15.06.2026,3,3,0,,Overdue,,general,sikh,F,B,A1
+CB279732-0275,Arjun Reddy,+91 9000049146,HINDI,302001,15,4930,2,12,07.10.2026,4,0,0,,Overdue,,obc,hindu,M,A,
+CB620047-0276,Manjit Singh,+91 9000098198,tamil,641001,3,3999,,,19.10.2026,0,0,0,,Overdue,,general,sikh,M,A,B2
+CB215479-0277,Kavita Yadav,+91 9000031660,Tamil,600001,43,36418,47,12,09.09.2026,4,2,0,,Overdue,ghar pe nahi tha,st,hindu,F,C,A1
+CB953886-0278,Annie Joseph,+91 9000053985,hi,800001,39,"₹ 19,989",,,13.09.2026,0,0,2,,Overdue,,st,christian,F,B,A1
+CB307737-0279,Vijay Patil,+91 9000027840,Malayalam,682001,10,"₹ 4,048",1,9,12.10.2026,5,0,3,promise,Overdue,,st,hindu,M,B,
+CB579886-0280,Raghu Iyer,+91 9000055700,HINDI,302001,54,7500,0,4,29.08.2026,3,0,2,callback,Sub-standard?,,st,hindu,M,A,B2
+CB186053-0281,Raghu Iyer,+91 9000063257,Malayalam,682001,6,6714,7,10,16.10.2026,0,0,0,,Overdue,,st,hindu,M,A,A1
+CB912152-0282,Suresh Yadav,+91 9000090402,Hindi,110001,23,12055,4,8,29.09.2026,4,2,0,,Paid,,obc,hindu,M,B,A1
+CB923009-0283,Arjun Reddy,+91 9000014691,Tamil,600001,47,36053,0,17,05.09.2026,4,0,0,,Overdue,,general,hindu,M,B,C3
+CB712310-0284,Rekha Verma,+91 9000045417,Marathi,400001,83,35672/-,,,31.07.2026,4,0,1,,Overdue,,obc,hindu,F,B,C3
+CB510554-0285,Raghu Iyer,+91 9000083415,marathi,411001,37,36443/-,,,15.09.2026,1,1,0,,Overdue,bola 1 tarikh ko de dunga,st,hindu,M,A,B2
+CB510554-0285,Raghu Iyer,+91 9000083415,marathi,411001,37,36943,,,15.09.2026,1,1,0,,Overdue,bola 1 tarikh ko de dunga,st,hindu,M,A,
+CB896894-0286,Fatima Begum,+91 9000057762,Bengali,700001,27,"₹ 6,622",8,13,25.09.2026,1,1,1,promise,Overdue,,obc,muslim,F,A,B2
+CB952562-0287,Ramesh Kumar,+91 9000015304,Malayalam,682001,22,"1,718.00",9,20,30.09.2026,0,0,2,,Overdue,,st,hindu,M,C,
+CB612278-0288,Suresh Yadav,+91 9000031411,hi,800001,26,"7,308.00",4,19,26.09.2026,2,0,0,,overdue,salary 28th ko aayega,obc,hindu,M,B,B2
+CB682344-0289,Lakshmi Devi,+91 9000033403,hi,800001,54,34057,7,21,29.08.2026,4,3,0,,,,st,hindu,F,C,B2
+CB873335-0290,Vijay Patil,+91 9000052181,Malayalam,682001,8,8470,2,4,14.10.2026,0,0,1,promise,overdue,,st,hindu,M,A,A1
+CB332838-0291,Anita Patel,+91 9000046992,Malayalam,682001,30,31297,,,22.09.2026,1,1,0,,Overdue,,general,hindu,F,C,C3
+CB606149-0292,Sunita Sharma,+91 9000012123,Malayalam,682001,20,"₹ 5,191",14,19,02.10.2026,0,0,0,,Overdue,will revert,general,hindu,F,B,C3
+CB727178-0293,Lakshmi Devi,+91 9000014587,Malayalam,682001,123,29705,6,18,21.06.2026,2,1,1,promise,Pending,,st,hindu,F,A,
+CB643271-0294,Manjit Singh,+91 9000031129,Telugu,500001,166,75333,,,09.05.2026,6,2,0,,Overdue,,st,sikh,M,B,A1
+CB395103-0295,Manoj Gupta,+91 9000011282,HINDI,302001,30,3774,12,18,22.09.2026,3,2,2,callback,Overdue,amount galat hai bol raha hai,sc,hindu,M,C,A1
+CB546310-0296,Meena Kumari,+91 9000061353,Marathi,400001,1,4368,9,10,21.10.2026,0,0,2,,Overdue,,sc,hindu,F,C,B2
+CB488699-0297,Kavita Yadav,+91 9000041845,HINDI,302001,122,48022,,,22.06.2026,0,0,0,,Pending,,obc,hindu,F,B,
+CB355966-0298,Rekha Verma,+91 9000064818,Kannada,560068,82,Rs. 14794,4,22,01.08.2026,3,0,2,promise,overdue,will revert,general,hindu,F,C,B2
+CB165234-0299,Anita Patel,+91 9000084310,HINDI,302001,36,20237,,,16.09.2026,4,4,0,,Sub-standard?,,sc,hindu,F,B,C3
