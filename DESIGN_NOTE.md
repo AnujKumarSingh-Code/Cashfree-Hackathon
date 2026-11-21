@@ -52,11 +52,17 @@ Verified by reading the official documentation on 21 November 2026:
 - Sarvam: speech-to-text endpoint, `saaras:v4`, modes including `codemix`, 30-second sync limit, 8 kHz support; text-to-speech endpoint, `bulbul:v3`, the eleven language codes.
 - Relay: Inbound Webhook trigger; HTTP, Cashfree and Sarvam AI action nodes; EMI Collections Agent template.
 
-Verified by running here: 120 automated tests; all seven scenarios in mock mode; the dashboard in a real browser. The Cashfree sandbox host answered an unauthenticated request with 401, which confirms the endpoint path exists.
+Verified by running here: 122 automated tests; all seven scenarios in mock mode; the dashboard in a real browser.
 
-Not exercised live: no Cashfree or Sarvam keys were available in the build environment, so no authenticated call, payment, webhook delivery, voice call, transcription or speech synthesis was made. `scripts/smoke_live.py` exercises each of these on a laptop with keys.
+Exercised live on the Cashfree sandbox with test keys on 21 November 2026: create payment link with part payment, fetch status,
+list orders, cancel; a repeat create with the same link ID was rejected; the app's part-payment scenario created a real link,
+the link was paid in the sandbox checkout, and the app read back `PAID` for ₹15,000, set the balance to zero, removed the account
+from the queue and logged the change. A second status check of the same payment changed nothing.
 
-Mocked: the Cashfree adapter (labelled MOCK on screen and in the audit trail) and the voice call (labelled SIMULATED CALL).
+Not exercised live: Cashfree webhook delivery (needs a public URL), Sarvam Saaras and Bulbul (no key in the build environment),
+and the Relay voice call (no Relay agent URL). `scripts/smoke_live.py` exercises Cashfree and Sarvam on a laptop with keys.
+
+Mocked when keys are absent: the Cashfree adapter (labelled MOCK on screen and in the audit trail) and the voice call (labelled SIMULATED CALL).
 
 ## Confirm with the event team
 

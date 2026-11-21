@@ -72,7 +72,7 @@ Relay setup steps are in `relay/README.md`.
 python -m pytest -q
 ```
 
-120 tests. They cover import, signals, gates, ranking, payments and idempotency, webhook signatures, contact rules,
+122 tests. They cover import, signals, gates, ranking, payments and idempotency, webhook signatures, contact rules,
 adapter request shapes against the official docs (using a fake transport, no network), fairness, evaluation and the API.
 
 ```bash
