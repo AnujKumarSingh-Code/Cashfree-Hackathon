@@ -7,3 +7,4 @@ kramsetu.db-*
 data/audio/
 data/*_hidden.csv.tmp
 .venv/
+smoke_tts.wav

@@ -1,0 +1,19 @@
+{
+  "event": "collections_contact",
+  "account_ref": "KS-1001",
+  "amount": 8400.0,
+  "min_part_amount": 1680,
+  "customer": { "name": "Lakshmi Devi", "phone": "<DEMO_CALL_NUMBER>", "language": "hi-IN" },
+  "script": [
+    "नमस्ते। मैं Kramsetu Demo Finance की ओर से बोल रहा हूँ।",
+    "यह कॉल रिकॉर्ड की जा रही है।",
+    "आपकी किस्त के 8,400 रुपये बकाया हैं।",
+    "आप अभी लिंक से भुगतान कर सकते हैं, या कम से कम 1,680 रुपये अभी देकर बाकी बाद में दे सकते हैं, या हमें वह तारीख बता सकते हैं जब आप भुगतान कर पाएँगे।",
+    "अगर आप किसी व्यक्ति से बात करना चाहते हैं, तो बता दीजिए।",
+    "अगर आप चाहते हैं कि हम दोबारा कॉल न करें, तो वह भी बता सकते हैं।",
+    "धन्यवाद। शिकायत के लिए संपर्क: Grievance Officer, 1800-000-0000, grievance@example.invalid।"
+  ],
+  "recording_disclosure": "यह कॉल रिकॉर्ड की जा रही है।",
+  "grievance_contact": "Grievance Officer, 1800-000-0000, grievance@example.invalid",
+  "callback_url": "<PUBLIC_BASE_URL>/api/relay/callback"
+}

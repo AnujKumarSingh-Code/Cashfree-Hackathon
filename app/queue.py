@@ -99,11 +99,14 @@ def reform(conn, settings, cause: str, cause_ref: str | None = None, actor: str 
                      (u["state"], u["hold_reason"], u["lane"], u["points"], u["breakdown_json"], u["reason"],
                       u["position"], u["is_exploration"], u["next_action"], ts, ref))
         old_pos, old_state, _ = before[ref]
-        if old_pos != u["position"] or old_state != u["state"]:
+        # the triggering account is always logged, even when its state was already updated by the caller
+        if old_pos != u["position"] or old_state != u["state"] or ref == cause_ref:
             changes.append((ref, old_pos, u["position"], old_state, u["state"]))
 
     def explain(ref, op, np_, os_, ns):
         if ref == cause_ref:
+            if np_ is None and op is None:
+                return f"{cause[0].upper() + cause[1:]}. Now '{ns}'. {updates[ref]['hold_reason'] or updates[ref]['reason'] or ''}".strip()
             if np_ is None:
                 return f"Left the call queue: {cause}. Now '{ns}'. {updates[ref]['hold_reason'] or ''}".strip()
             if op is None:
@@ -126,6 +129,8 @@ def reform(conn, settings, cause: str, cause_ref: str | None = None, actor: str 
                          (ts, cause, cause_ref, ref, op, np_, os_, ns, explain(ref, op, np_, os_, ns)))
         for ref, op, np_, os_, ns in changes:
             if ref == cause_ref or os_ != ns:
+                if ref == cause_ref and op == np_ and os_ == ns and cause.startswith("clock"):
+                    continue
                 db.audit(conn, "queue_position_changed", {"cause": cause, "old_position": op, "new_position": np_,
                          "old_state": os_, "new_state": ns, "points": updates[ref]["points"],
                          "reason": updates[ref]["reason"] or updates[ref]["hold_reason"]},
