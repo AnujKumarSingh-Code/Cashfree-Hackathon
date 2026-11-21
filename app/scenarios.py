@@ -96,7 +96,8 @@ def part_payment(ctx):
     link = r["link"]["link"]
     steps.append({"step": "Part-payment link created", "result": f"{link['link_id']} for ₹{link['amount']:,.0f}, minimum first amount ₹{link['min_part']:,.0f} [{link['mode'].upper()}]"})
     paid = _pay(ctx, steps, link, round(link["amount"] / 2), "half")
-    steps.append({"step": f"{ref} after: balance reduced, not closed", "result": _pos(ctx, ref)})
+    steps.append({"step": f"{ref} after: balance reduced, not closed" if paid else f"{ref} now: waiting for the sandbox payment",
+                  "result": _pos(ctx, ref)})
     second = payments.create_link_for_account(ctx, ref)
     steps.append({"step": "Request for another link", "result": "Existing open link reused; no second link created." if second.get("reused") else second})
     return {"scenario": "part_payment", "account": ref, "note": note, "steps": steps, "complete": paid}
