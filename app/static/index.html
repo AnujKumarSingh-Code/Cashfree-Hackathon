@@ -76,7 +76,7 @@ async function loadStatus(){
   $("#badges").innerHTML=[
     `<span class="b ${m.cashfree==="live"?"ok":"warn"}">Cashfree: ${m.cashfree==="live"?"LIVE SANDBOX":"MOCK"}</span>`,
     `<span class="b ${m.sarvam==="live"?"ok":"warn"}">Sarvam: ${m.sarvam==="live"?"LIVE":"NOT CONFIGURED"}</span>`,
-    `<span class="b ${m.voice==="relay"?"ok":"warn"}">Voice: ${m.voice==="relay"?"RELAY CALL":"SIMULATED CALL"}</span>`,
+    `<span class="b ${m.voice==="simulated"?"warn":"ok"}">Voice: ${({sarvam:"SARVAM LIVE CALL",relay:"RELAY CALL",simulated:"SIMULATED CALL"})[m.voice]}</span>`,
     `<span class="b ${w.open_now?"ok":"bad"}">Contact window ${esc(w.start)}–${esc(w.end)}: ${w.open_now?"open":"closed"}</span>`,
     `<span class="b ${status.clock_simulated?"warn":""}">${status.clock_simulated?"SIMULATED clock: ":""}${esc(status.now.slice(0,16).replace("T"," "))}</span>`,
     `<span class="b">Synthetic data · sandbox only</span>`].join("");
@@ -162,7 +162,7 @@ async function showAccount(ref){
     <button class="act" id="call" ${canCall?"":"disabled"}>Approve contact</button>
     <button class="ghost" id="lnk" ${canCall||a.lane==="reminder_only"?"":"disabled"}>Send payment link</button>
     ${held?`<button class="ghost" id="rel">Release to queue</button><button class="ghost" id="off">Confirm offline payment</button>`:""}</div>
-  ${last&&last.script?`<h3>Call script (${esc(last.script.language)}, ${last.mode==="simulated"?"SIMULATED CALL":"Relay call"})</h3><pre>${last.script.lines.map(l=>esc(l.text)).join("\n")}</pre>${last.has_audio?`<audio controls src="/api/contacts/${last.id}/audio" style="width:100%"></audio>`:""}`:""}
+  ${last&&last.script?`<h3>Call script (${esc(last.script.language)}, ${({simulated:"SIMULATED CALL",sarvam:"real Sarvam voice call",relay:"Relay call"})[last.mode]})</h3>${d.call_pending?`<div class="note">A real call was placed to the demo phone. When it ends, fetch the result. <button class="act" id="sync">Fetch call result</button></div>`:""}<pre>${last.script.lines.map(l=>esc(l.text)).join("\n")}</pre>${last.has_audio?`<audio controls src="/api/contacts/${last.id}/audio" style="width:100%"></audio>`:""}`:""}
   ${a.state==="contacted"||last?`<h3>Borrower reply</h3><textarea id="rep" rows="2" placeholder="Type or paste what the borrower said, e.g. salary 5th ko aayega"></textarea>
    <div class="row" style="margin-top:6px"><button class="act" id="sendrep">Record reply</button><input type="file" id="aud" accept="audio/*"><button class="ghost" id="sendaud">Transcribe with Saaras</button></div>
    ${last&&last.transcript?`<p class="small"><b>Last transcript</b> (${esc(last.transcript_source||"")}): “${esc(last.transcript)}”<br>Understood as <b>${esc(last.intent)}</b>, confidence ${last.confidence}, evidence “${esc(last.evidence||"")}”. <span class="muted">Uncertain evidence, not a payment.</span></p>`:""}`:""}
@@ -175,6 +175,7 @@ async function showAccount(ref){
   on("call",()=>post(`/api/accounts/${encodeURIComponent(ref)}/contact`));on("lnk",()=>post(`/api/accounts/${encodeURIComponent(ref)}/link`));
   on("rel",()=>post(`/api/accounts/${encodeURIComponent(ref)}/review`,{action:"release",note:"released from dashboard"}));
   on("off",()=>post(`/api/accounts/${encodeURIComponent(ref)}/review`,{action:"confirm_paid_offline",note:prompt("Receipt reference or note")||""}));
+  on("sync",()=>post(`/api/accounts/${encodeURIComponent(ref)}/sync-call`));
   on("sendrep",()=>post(`/api/accounts/${encodeURIComponent(ref)}/reply`,{transcript:$("#rep").value}));
   on("sendaud",async()=>{const f=$("#aud").files[0];if(!f)throw new Error("Choose an audio file first");const fd=new FormData();fd.append("file",f);return api(`/api/accounts/${encodeURIComponent(ref)}/reply-audio`,{method:"POST",body:fd})});
   document.querySelectorAll("[data-chk]").forEach(b=>b.onclick=()=>run(()=>post(`/api/links/${encodeURIComponent(b.dataset.chk)}/check`)));

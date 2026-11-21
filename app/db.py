@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS payment_events (
 CREATE TABLE IF NOT EXISTS contacts (
   id INTEGER PRIMARY KEY AUTOINCREMENT, account_ref TEXT, ts TEXT, language TEXT, mode TEXT,
   disclosure_given INTEGER, script_json TEXT, audio_path TEXT, transcript TEXT, transcript_source TEXT,
-  intent TEXT, confidence REAL, evidence TEXT, outcome TEXT);
+  intent TEXT, confidence REAL, evidence TEXT, outcome TEXT, provider_ref TEXT);
 CREATE TABLE IF NOT EXISTS queue_changes (
   id INTEGER PRIMARY KEY AUTOINCREMENT, ts TEXT, cause TEXT, cause_ref TEXT, account_ref TEXT,
   old_position INTEGER, new_position INTEGER, old_state TEXT, new_state TEXT, explanation TEXT);
@@ -60,6 +60,10 @@ def connect(path: str) -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.executescript(SCHEMA)
+    try:   # databases created before the direct voice path
+        conn.execute("ALTER TABLE contacts ADD COLUMN provider_ref TEXT")
+    except sqlite3.OperationalError:
+        pass
     return conn
 
 

@@ -65,10 +65,12 @@ def create_app(ctx=None) -> FastAPI:
             "now": now.isoformat(), "clock_simulated": db.clock_is_simulated(c),
             "contact_window": {"start": s.window_start, "end": s.window_end, "timezone": s.timezone,
                                "open_now": gates.within_window(now, s.window_start, s.window_end)},
-            "modes": {"cashfree": C().cashfree.mode, "sarvam": C().sarvam.mode, "voice": s.relay_mode},
+            "modes": {"cashfree": C().cashfree.mode, "sarvam": C().sarvam.mode, "voice": s.voice_mode},
             "configured": {"CASHFREE_CLIENT_ID": bool(s.cashfree_client_id), "CASHFREE_CLIENT_SECRET": bool(s.cashfree_client_secret),
                            "SARVAM_API_KEY": bool(s.sarvam_api_key), "RELAY_WEBHOOK_URL": bool(s.relay_webhook_url),
-                           "DEMO_CALL_NUMBER": bool(s.demo_call_number), "PUBLIC_BASE_URL": bool(s.public_base_url)},
+                           "DEMO_CALL_NUMBER": bool(s.demo_call_number), "PUBLIC_BASE_URL": bool(s.public_base_url),
+                           "SARVAM_VOICE_API_KEY": bool(s.sarvam_voice_api_key), "SARVAM_AGENT_ID": bool(s.sarvam_agent_id),
+                           "SARVAM_CONNECTION_ID": bool(s.sarvam_connection_id), "SARVAM_CALLER_NUMBER": bool(s.sarvam_caller_number)},
             "capacity": s.daily_call_capacity, "max_attempts_per_week": s.max_attempts_per_week,
             "accounts": sum(counts.values()), "states": counts, "lanes": lanes,
             "last_import": ({**dict(batch), "mapping": json.loads(batch["mapping_json"]), "unmapped": json.loads(batch["unmapped_json"]),
@@ -131,6 +133,8 @@ def create_app(ctx=None) -> FastAPI:
                                                 "intent", "confidence", "evidence", "outcome")},
                           "script": json.loads(x["script_json"]) if x["script_json"] else None, "has_audio": bool(x["audio_path"])}
                          for x in c.execute("SELECT * FROM contacts WHERE account_ref=? ORDER BY id", (ref,))],
+            "call_pending": bool(c.execute("SELECT 1 FROM contacts WHERE account_ref=? AND mode='sarvam' AND "
+                                           "outcome='awaiting_reply' LIMIT 1", (ref,)).fetchone()),
         }
 
     @app.get("/api/contacts/{contact_id}/audio")
@@ -203,6 +207,20 @@ def create_app(ctx=None) -> FastAPI:
         if not ref or not text:
             raise HTTPException(400, "account_ref and transcript are required")
         return contact.record_reply(C(), ref, text, "relay_callback")
+
+    @app.post("/api/accounts/{ref}/sync-call")
+    def sync_call(ref: str):
+        """Fetch the result of the latest Sarvam voice call for this account and apply it."""
+        return contact.sync_call(C(), ref)
+
+    @app.post("/api/sarvam/callback")
+    async def sarvam_callback(request: Request):
+        try:
+            payload = await request.json()
+        except Exception:
+            raise HTTPException(400, "body is not JSON")
+        code, res = contact.handle_sarvam_webhook(C(), payload if isinstance(payload, dict) else {})
+        return JSONResponse(res, status_code=code)
 
     @app.post("/api/clock")
     async def clock(request: Request):

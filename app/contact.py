@@ -11,6 +11,7 @@ from pathlib import Path
 
 from . import db, gates, payments, queue, signals
 from .adapters import relay as relay_adapter
+from .adapters import sarvam_voice
 from .adapters.sarvam import SarvamError, TTS_LANGUAGES
 
 SCRIPT_VERSION = "kramsetu-script-1.0"
@@ -77,8 +78,28 @@ def start_contact(ctx, ref: str, actor: str = "manager") -> dict:
         db.audit(conn, "contact_refused", {"why": refusal}, ref, actor=actor)
         return {"ok": False, "refused": True, "error": "Contact not made. " + refusal}
     script = build_script(acc, s)
-    mode, relay_note, audio_path = "simulated", None, None
-    if s.relay_mode == "relay":
+    mode, relay_note, audio_path, provider_ref = "simulated", None, None, None
+    min_part = max(round(acc["outstanding"] * s.min_part_share), 1)
+    if s.voice_mode == "sarvam":
+        # direct Sarvam Voice Agents call. Dials only the approved demo number, never the borrower's number.
+        variables = {"account_ref": ref, "customer_name": acc["name"] or "", "customer_language": script["language"],
+                     "amount": f"{acc['outstanding']:.0f}", "min_part_amount": str(min_part), "lender": s.lender_name,
+                     "grievance_contact": s.grievance_contact, "recording_disclosure": script["lines"][1]["text"],
+                     "script": "\n".join(l["text"] for l in script["lines"])}
+        hook = f"{s.public_base_url}/api/sarvam/callback" if s.public_base_url else None
+        try:
+            try:
+                res = sarvam_voice.place_call(s, "+91" + s.demo_call_number, variables, hook, {"account_ref": ref})
+            except sarvam_voice.SarvamVoiceError as e:
+                if e.status_code not in (400, 422):
+                    raise
+                # the agent may not declare these variables; the call itself is still valid without them
+                res = sarvam_voice.place_call(s, "+91" + s.demo_call_number, None, hook, {"account_ref": ref})
+                relay_note = "Sarvam rejected the agent variables; the call was placed without them."
+            mode, provider_ref = "sarvam", res["attempt_id"]
+        except sarvam_voice.SarvamVoiceError as e:
+            relay_note = f"Sarvam voice call failed ({e}); fell back to a simulated call."
+    elif s.voice_mode == "relay":
         payload = {"event": "collections_contact", "account_ref": ref, "amount": acc["outstanding"],
                    "min_part_amount": max(round(acc["outstanding"] * s.min_part_share), 1),
                    # the call always goes to the one approved demo number, never to a synthetic borrower number
@@ -104,19 +125,96 @@ def start_contact(ctx, ref: str, actor: str = "manager") -> dict:
                 audio_path = str(p)
         except SarvamError as e:
             relay_note = (relay_note + " " if relay_note else "") + str(e)
-    cur = conn.execute("INSERT INTO contacts(account_ref,ts,language,mode,disclosure_given,script_json,audio_path,outcome)"
-                       " VALUES(?,?,?,?,?,?,?,?)",
+    cur = conn.execute("INSERT INTO contacts(account_ref,ts,language,mode,disclosure_given,script_json,audio_path,outcome,"
+                       "provider_ref) VALUES(?,?,?,?,?,?,?,?,?)",
                        (ref, now.isoformat(), script["language"], mode, 1, json.dumps(script, ensure_ascii=False),
-                        audio_path, "awaiting_reply"))
+                        audio_path, "awaiting_reply", provider_ref))
     conn.execute("UPDATE accounts SET state='contacted', attempts_7d=COALESCE(attempts_7d,0)+1, last_contact_at=?,"
                  " last_contact_outcome='awaiting_reply' WHERE account_ref=?", (now.isoformat(), ref))
     db.audit(conn, "contacted", {"contact_id": cur.lastrowid, "mode": mode, "language": script["language"],
              "recording_disclosed": True, "script_version": SCRIPT_VERSION, "phone": db.mask_phone(acc["phone"]),
              "within_window": True, "window": f"{s.window_start}-{s.window_end} {s.timezone}", "note": relay_note,
-             "label": "SIMULATED CALL" if mode == "simulated" else "Relay voice call requested"},
+             "provider_ref": provider_ref,
+             "label": {"simulated": "SIMULATED CALL", "sarvam": "Sarvam voice call placed",
+                       "relay": "Relay voice call requested"}[mode]},
              ref, actor=actor, source=mode)
     return {"ok": True, "contact_id": cur.lastrowid, "mode": mode, "script": script, "note": relay_note,
-            "audio": bool(audio_path)}
+            "audio": bool(audio_path), "attempt_id": provider_ref}
+
+
+def apply_call_outcome(ctx, contact_row: dict, status: str, turns: list[dict] | None, interaction_id: str | None,
+                       duration, failure_reason: str | None, source: str) -> dict:
+    """One place that turns a finished Sarvam call into account state. Safe to call twice."""
+    conn, s = ctx.conn, ctx.settings
+    ref = contact_row["account_ref"]
+    if contact_row["outcome"] != "awaiting_reply":
+        return {"ok": True, "duplicate": True, "message": "Call result already applied. Nothing changed."}
+    status = (status or "").lower()
+    if status != "connected":
+        outcome = "no_answer" if status in ("no_answer", "busy") else "call_failed"
+        conn.execute("UPDATE contacts SET outcome=? WHERE id=?", (outcome, contact_row["id"]))
+        conn.execute("UPDATE accounts SET state='ranked', last_contact_outcome=? WHERE account_ref=? AND state='contacted'",
+                     (outcome, ref))
+        db.audit(conn, "call_not_connected", {"status": status, "failure_reason": failure_reason,
+                 "attempt_id": contact_row["provider_ref"], "note": "No conversation took place. Nothing is assumed."},
+                 ref, source="sarvam")
+        queue.reform(conn, s, f"call did not connect ({status or 'unknown'})", ref)
+        return {"ok": True, "connected": False, "status": status, "message": f"Call did not connect ({status})."}
+    turns = turns or []
+    said = " ".join(t["content"].strip() for t in turns if t.get("role") == "user" and t.get("content", "").strip())
+    db.audit(conn, "call_transcript", {"attempt_id": contact_row["provider_ref"], "interaction_id": interaction_id,
+             "duration_seconds": duration, "turns": turns, "source": source,
+             "note": "Transcript is uncertain evidence, not a verified payment event."}, ref, source="sarvam")
+    res = record_reply(ctx, ref, said or "(the borrower did not say anything that was transcribed)", source)
+    res.update(connected=True, status="connected", turns=turns, duration_seconds=duration)
+    return res
+
+
+def sync_call(ctx, ref: str) -> dict:
+    """Ask Sarvam how the latest call for this account ended, and apply it. Used when no webhook URL is public."""
+    conn, s = ctx.conn, ctx.settings
+    row = conn.execute("SELECT * FROM contacts WHERE account_ref=? AND mode='sarvam' AND provider_ref IS NOT NULL "
+                       "ORDER BY id DESC LIMIT 1", (ref,)).fetchone()
+    if not row:
+        return {"ok": False, "error": "No Sarvam voice call on record for this account."}
+    row = dict(row)
+    if row["outcome"] != "awaiting_reply":
+        return {"ok": True, "duplicate": True, "message": "Call result already applied. Nothing changed."}
+    from datetime import datetime
+    try:
+        att = sarvam_voice.find_attempt(s, row["provider_ref"], datetime.fromisoformat(row["ts"]))
+        if not att or (att.get("connectivity_status") == "connected" and not att.get("end_datetime")):
+            return {"ok": True, "pending": True, "message": "Sarvam has not reported this call as finished yet. Try again shortly."}
+        turns = []
+        if att.get("connectivity_status") == "connected" and att.get("interaction_id"):
+            turns = sarvam_voice.get_transcript(s, att["interaction_id"])
+            if not turns:
+                return {"ok": True, "pending": True, "message": "Call finished; the transcript is not ready yet. Try again shortly."}
+    except sarvam_voice.SarvamVoiceError as e:
+        return {"ok": False, "error": f"Could not read the call result: {e}. Nothing changed."}
+    return apply_call_outcome(ctx, row, att.get("connectivity_status"), turns, att.get("interaction_id"),
+                              att.get("duration_in_seconds"), att.get("failure_reason"), "sarvam_transcript")
+
+
+def handle_sarvam_webhook(ctx, payload: dict) -> tuple[int, dict]:
+    """Sarvam posts here when an instant outbound attempt completes. Matched by attempt_id; unknown ids are refused."""
+    conn, s = ctx.conn, ctx.settings
+    row = conn.execute("SELECT * FROM contacts WHERE provider_ref=?", (str(payload.get("attempt_id") or ""),)).fetchone()
+    if not row:
+        return 404, {"ok": False, "error": "unknown attempt_id"}
+    row = dict(row)
+    turns = []
+    if (payload.get("status") or "").lower() == "connected":
+        try:   # prefer the native-language transcript; the webhook only carries English text
+            if payload.get("interaction_id"):
+                turns = sarvam_voice.get_transcript(s, payload["interaction_id"])
+        except sarvam_voice.SarvamVoiceError:
+            turns = []
+        if not turns:
+            turns = [{"role": "user" if t.get("role") == "user" else "assistant", "content": t.get("en_text") or ""}
+                     for t in (payload.get("interaction_transcript") or [])]
+    return 200, apply_call_outcome(ctx, row, payload.get("status"), turns, payload.get("interaction_id"),
+                                   payload.get("duration"), payload.get("failure_reason"), "sarvam_webhook")
 
 
 def record_reply(ctx, ref: str, transcript: str, transcript_source: str = "typed", actor: str = "agent") -> dict:

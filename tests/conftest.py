@@ -11,7 +11,9 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 # tests never touch real services or a developer's .env keys
-for k in ("CASHFREE_CLIENT_ID", "CASHFREE_CLIENT_SECRET", "SARVAM_API_KEY", "RELAY_WEBHOOK_URL", "DEMO_CALL_NUMBER", "PUBLIC_BASE_URL"):
+for k in ("CASHFREE_CLIENT_ID", "CASHFREE_CLIENT_SECRET", "SARVAM_API_KEY", "RELAY_WEBHOOK_URL", "DEMO_CALL_NUMBER", "PUBLIC_BASE_URL",
+          "SARVAM_VOICE_API_KEY", "SARVAM_ORG_ID", "SARVAM_WORKSPACE_ID", "SARVAM_AGENT_ID", "SARVAM_CONNECTION_ID",
+          "SARVAM_CALLER_NUMBER"):
     os.environ[k] = ""
 os.environ["KRAMSETU_FORCE_MOCK"] = "1"
 
