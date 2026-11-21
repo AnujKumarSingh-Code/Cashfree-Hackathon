@@ -143,3 +143,34 @@ def test_signed_webhook_applies_once_and_forged_one_is_rejected(demo):
     assert code == 200 and res["changed"] and acc(demo, "KS-1003")["outstanding"] == 11000
     code, res = payments.handle_webhook(demo, body, "1700000000000", sig)       # redelivery
     assert code == 200 and res["duplicate"] and acc(demo, "KS-1003")["outstanding"] == 11000
+
+
+def test_lost_create_response_adopts_the_existing_link_instead_of_making_another(demo):
+    contact.start_contact(demo, "KS-1001")
+    demo.cashfree.fail_create_after_commit = True
+    res = contact.record_reply(demo, "KS-1001", "haan link bhej do")["link"]
+    demo.cashfree.fail_create_after_commit = False
+    assert res["ok"] and res["link"]["status"] == "ACTIVE"
+    assert demo.conn.execute("SELECT COUNT(*) n FROM mock_cashfree_links").fetchone()["n"] == 1
+    assert demo.conn.execute("SELECT COUNT(*) n FROM payment_links").fetchone()["n"] == 1
+    assert demo.conn.execute("SELECT COUNT(*) n FROM audit_events WHERE kind='link_adopted'").fetchone()["n"] == 1
+
+
+def test_link_ids_differ_between_fresh_databases(demo, settings):
+    from app import db, ingest, queue
+    from app.adapters.cashfree import CashfreeMock
+    from app.adapters.sarvam import SarvamMock
+    from app.context import Ctx
+    from tests.conftest import DEMO
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    a = link_for(demo)["link_id"]
+    conn = db.connect(":memory:")
+    db.set_clock(conn, datetime(2026, 11, 21, 11, 0, tzinfo=ZoneInfo("Asia/Kolkata")))
+    other = Ctx(conn, settings, CashfreeMock(conn), SarvamMock())
+    ingest.import_file(conn, DEMO.read_bytes(), DEMO.name)
+    queue.reform(conn, settings, "t")
+    b = link_for(other)["link_id"]
+    assert a != b and len(a) <= 50 and len(b) <= 50
+    import re
+    assert re.fullmatch(r"[A-Za-z0-9_-]+", a)

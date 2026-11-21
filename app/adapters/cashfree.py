@@ -117,6 +117,7 @@ class CashfreeMock:
     def __init__(self, conn):
         self._conn = conn
         self.fail_lookups = False   # test hook: simulate a status lookup failure
+        self.fail_create_after_commit = False   # test hook: link is created but the response is lost
 
     def _row(self, link_id: str):
         r = self._conn.execute("SELECT * FROM mock_cashfree_links WHERE link_id=?", (link_id,)).fetchone()
@@ -139,6 +140,8 @@ class CashfreeMock:
                 "link_minimum_partial_amount": min_partial, "link_expiry_time": expiry_iso}
         self._conn.execute("INSERT INTO mock_cashfree_links(link_id,body_json,status,amount_paid) VALUES(?,?,?,0)",
                            (link_id, json.dumps(body), "ACTIVE"))
+        if self.fail_create_after_commit:
+            raise CashfreeError("MOCK: simulated timeout after the link was created")
         return self._view(self._row(link_id))
 
     def get_link(self, link_id: str) -> dict:

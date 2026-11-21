@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import re
+import secrets
 from datetime import timedelta
 
 from . import db, queue
@@ -42,7 +43,13 @@ def create_link_for_account(ctx, ref: str, actor: str = "agent", reason: str = "
                  actor=actor, source=existing["mode"])
         return {"ok": True, "reused": True, "link": existing}
     seq = conn.execute("SELECT COUNT(*) c FROM payment_links WHERE account_ref=?", (ref,)).fetchone()["c"] + 1
-    link_id = re.sub(r"[^A-Za-z0-9_-]", "-", f"ks_{ref}_{seq}")[:50]
+    # unique per database install, so a fresh database never collides with links Cashfree already holds;
+    # stable per attempt, so a retry of the same attempt can never create a second link
+    install = db.get_meta(conn, "install_id")
+    if not install:
+        install = secrets.token_hex(3)
+        db.set_meta(conn, "install_id", install)
+    link_id = f"ks_{install}_{re.sub(r'[^A-Za-z0-9_-]', '-', ref)[-32:]}_{seq}"[:50]
     amount = round(acc["outstanding"], 2)
     min_part = max(round(amount * s.min_part_share), 1) if amount > 2 else None
     now = db.now(conn, s.timezone)
@@ -52,10 +59,20 @@ def create_link_for_account(ctx, ref: str, actor: str = "agent", reason: str = "
         res = ctx.cashfree.create_link(
             link_id=link_id, amount=amount, purpose=f"{s.lender_name}: overdue instalment for {ref}",
             customer={"phone": acc["phone"], "name": acc["name"]}, partial=bool(min_part), min_partial=min_part,
-            expiry_iso=expiry, notes={"account_ref": ref, "app": "kramsetu"}, notify_url=notify)
+            expiry_iso=expiry, notes={"account_ref": ref, "app": "kramsetu"}, notify_url=notify,
+            send_sms=False)   # borrower numbers here are synthetic; the link is shared by the agent, not by SMS
     except cf.CashfreeError as e:
-        db.audit(conn, "link_create_failed", {"link_id": link_id, "error": str(e)}, ref, actor=actor, source=ctx.cashfree.mode)
-        return {"ok": False, "error": f"Cashfree did not create the link: {e}. Nothing changed."}
+        # the request may have reached Cashfree even though we got an error back: look before giving up
+        try:
+            res = ctx.cashfree.get_link(link_id)
+        except cf.CashfreeError:
+            res = None
+        if not res or abs(res["link_amount"] - amount) > 0.005:
+            db.audit(conn, "link_create_failed", {"link_id": link_id, "error": str(e),
+                     "found_at_cashfree": bool(res)}, ref, actor=actor, source=ctx.cashfree.mode)
+            return {"ok": False, "error": f"Cashfree did not create the link: {e}. Nothing changed."}
+        db.audit(conn, "link_adopted", {"link_id": link_id, "why": "create returned an error but the link exists at Cashfree; "
+                 "adopted instead of creating another", "error": str(e)}, ref, actor=actor, source=ctx.cashfree.mode)
     ts = now.isoformat()
     conn.execute("INSERT INTO payment_links(link_id,account_ref,cf_link_id,link_url,amount,min_part,partial,status,"
                  "amount_paid,mode,created_at,updated_at,expiry) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",
