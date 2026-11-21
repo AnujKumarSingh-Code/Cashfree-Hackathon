@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kramsetu</title>
+<style>
+:root{--bg:#f6f7f5;--panel:#fff;--ink:#17201b;--muted:#5d6b63;--line:#dfe4df;--accent:#0b7a4b;--accent-soft:#e3f3ea;
+--warn:#a15c00;--warn-soft:#fdf1dc;--bad:#a3261f;--bad-soft:#fbe6e4;--info:#1d5fa8;--info-soft:#e4eefa;--radius:10px}
+@media (prefers-color-scheme:dark){:root{--bg:#111613;--panel:#19201c;--ink:#e8eee9;--muted:#9aa8a0;--line:#2b352f;
+--accent:#4fd08f;--accent-soft:#173326;--warn:#f0b455;--warn-soft:#3a2c12;--bad:#f08a82;--bad-soft:#3d1c1a;--info:#7fb4f0;--info-soft:#172a40}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif}
+header{padding:14px 20px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+h1{font-size:20px;margin:0;letter-spacing:.2px}h1 small{font-size:12px;font-weight:400;color:var(--muted);margin-left:8px}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.b{font-size:11.5px;padding:3px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.b.ok{background:var(--accent-soft);color:var(--accent);border-color:transparent}.b.warn{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.b.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}.b.info{background:var(--info-soft);color:var(--info);border-color:transparent}
+main{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:16px;padding:16px 20px;max-width:1500px;margin:0 auto}
+@media (max-width:1100px){main{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button{border:1px solid var(--line);background:transparent;color:var(--muted);padding:6px 11px;border-radius:8px;cursor:pointer;font:inherit}
+.tabs button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+@media (prefers-color-scheme:dark){.tabs button.on{color:#0c1410}}
+button.act{border:1px solid var(--accent);background:var(--accent);color:#fff;padding:6px 11px;border-radius:8px;cursor:pointer;font:inherit}
+@media (prefers-color-scheme:dark){button.act{color:#0c1410}}
+button.ghost{border:1px solid var(--line);background:transparent;color:var(--ink);padding:6px 11px;border-radius:8px;cursor:pointer;font:inherit}
+button:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+table{width:100%;border-collapse:collapse}th{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}tr.pick{cursor:pointer}tr.pick:hover{background:var(--accent-soft)}
+.pos{font-weight:700;font-variant-numeric:tabular-nums}.pts{font-variant-numeric:tabular-nums;font-weight:600}
+.muted{color:var(--muted)}.small{font-size:12.5px}.reason{max-width:520px}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:4px 10px;font-size:13px}.kv div:nth-child(odd){color:var(--muted)}
+.bar{height:6px;background:var(--line);border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:12px}.tl .ev{margin:0 0 10px;position:relative}
+.tl .ev:before{content:"";position:absolute;left:-18px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+pre{white-space:pre-wrap;word-break:break-word;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px;font-size:12px;margin:6px 0}
+input[type=text],textarea{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+h2{font-size:15px;margin:0 0 8px}h3{font-size:13px;margin:14px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.note{background:var(--warn-soft);color:var(--warn);padding:8px 10px;border-radius:8px;margin:8px 0;font-size:13px}
+.good{background:var(--accent-soft);color:var(--accent);padding:8px 10px;border-radius:8px;margin:8px 0;font-size:13px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}.stat{border:1px solid var(--line);border-radius:8px;padding:10px}
+.stat b{font-size:22px;display:block;font-variant-numeric:tabular-nums}
+#toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 14px;border-radius:8px;display:none;max-width:80vw;z-index:9}
+</style>
+</head>
+<body>
+<header>
+  <h1>Kramsetu<small>The collections queue that explains itself</small></h1>
+  <div class="badges" id="badges"></div>
+</header>
+<main>
+  <section class="card">
+    <div class="tabs" id="tabs"></div>
+    <div id="view"></div>
+  </section>
+  <aside class="card" id="detail"><h2>Account</h2><p class="muted">Select a row to see why it is where it is, and what can be done next.</p></aside>
+</main>
+<div id="toast"></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const inr=n=>n==null?"":"₹"+Number(n).toLocaleString("en-IN",{maximumFractionDigits:0});
+const api=async(p,o={})=>{const r=await fetch(p,o);const t=await r.text();let j;try{j=JSON.parse(t)}catch{j={raw:t}}if(!r.ok)throw new Error(j.detail||j.error||r.statusText);return j};
+const post=(p,b)=>api(p,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b||{})});
+const toast=m=>{const t=$("#toast");t.textContent=m;t.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display="none",4200)};
+const TABS=[["queue","Call queue"],["reminder_only","Reminder only"],["call_on_date","Call on date"],["holds","Holds and review"],["changes","What changed"],["evaluation","Evaluation"],["fairness","Fairness"],["scenarios","Demo scenarios"],["import","Import and rules"]];
+let tab="queue",status=null,current=null;
+const stateBadge=s=>{const m={ranked:"ok",partially_paid:"info",paid:"ok",promise_recorded:"info",awaiting_payment:"info",needs_review:"warn",claim_under_check:"warn",hardship_hold:"warn",disputed:"bad",do_not_contact:"bad",attempt_cap:"warn",not_overdue:"",contacted:"info"};return `<span class="b ${m[s]||""}">${esc((s||"").replace(/_/g," "))}</span>`};
+
+async function loadStatus(){
+  status=await api("/api/status");const m=status.modes,w=status.contact_window;
+  $("#badges").innerHTML=[
+    `<span class="b ${m.cashfree==="live"?"ok":"warn"}">Cashfree: ${m.cashfree==="live"?"LIVE SANDBOX":"MOCK"}</span>`,
+    `<span class="b ${m.sarvam==="live"?"ok":"warn"}">Sarvam: ${m.sarvam==="live"?"LIVE":"NOT CONFIGURED"}</span>`,
+    `<span class="b ${m.voice==="relay"?"ok":"warn"}">Voice: ${m.voice==="relay"?"RELAY CALL":"SIMULATED CALL"}</span>`,
+    `<span class="b ${w.open_now?"ok":"bad"}">Contact window ${esc(w.start)}–${esc(w.end)}: ${w.open_now?"open":"closed"}</span>`,
+    `<span class="b ${status.clock_simulated?"warn":""}">${status.clock_simulated?"SIMULATED clock: ":""}${esc(status.now.slice(0,16).replace("T"," "))}</span>`,
+    `<span class="b">Synthetic data · sandbox only</span>`].join("");
+}
+function renderTabs(){$("#tabs").innerHTML=TABS.map(([k,l])=>`<button class="${k===tab?"on":""}" data-t="${k}">${l}</button>`).join("");
+  document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{tab=b.dataset.t;render()})}
+const rowsTable=(items,showPos)=>`<table><thead><tr>${showPos?"<th>#</th>":""}<th>Account</th><th>Overdue</th><th>Balance</th><th>Points</th><th>Why / status</th></tr></thead><tbody>${
+  items.map(a=>`<tr class="pick" data-ref="${esc(a.account_ref)}">${showPos?`<td class="pos">${a.position??""}</td>`:""}
+  <td><b>${esc(a.account_ref)}</b><div class="muted small">${esc(a.name||"")} · ${esc(a.phone_masked)}</div></td>
+  <td>${a.days_overdue??"?"} d</td><td>${inr(a.outstanding)}</td><td class="pts">${a.points??""}</td>
+  <td class="reason">${stateBadge(a.state)} ${a.is_exploration?'<span class="b info">exploration</span>':""}<div class="small">${esc(a.reason||a.hold_reason||"")}</div></td></tr>`).join("")
+  ||`<tr><td colspan="6" class="muted">Nothing here.</td></tr>`}</tbody></table>`;
+const bindRows=()=>document.querySelectorAll("tr.pick").forEach(r=>r.onclick=()=>showAccount(r.dataset.ref));
+
+async function render(){
+  renderTabs();await loadStatus();const v=$("#view");
+  if(tab==="queue"||tab==="reminder_only"||tab==="call_on_date"){
+    const lane=tab==="queue"?"call_now":tab;const q=await api(`/api/queue?lane=${lane}&limit=100`);
+    const head={queue:`Call queue: ${q.total} accounts, capacity ${status.capacity} calls today`,reminder_only:`Reminder only: ${q.total} accounts that pay reliably without a call`,call_on_date:`Call on date: ${q.total} accounts waiting for the date the borrower named`}[tab];
+    v.innerHTML=`<div class="row" style="justify-content:space-between"><h2>${head}</h2><div class="row"><button class="ghost" id="chk">Check payment status</button><a href="/api/export.csv"><button class="ghost">Export ranked CSV</button></a></div></div>
+    <p class="muted small">Points set calling order. They are not a prediction that anyone will pay. Showing the first 100.</p>${rowsTable(q.items,tab==="queue")}`;
+    $("#chk").onclick=async()=>{const r=await post("/api/links/check-all");toast(r.results.length?r.results.map(x=>x.message||x.error).join(" | "):"No open payment links to check.");render();if(current)showAccount(current)};
+    bindRows();
+  }else if(tab==="holds"){
+    const h=await api("/api/holds");v.innerHTML=`<h2>Holds and review: ${h.total} accounts not in any contact lane</h2><p class="muted small">Every hold names the rule that fired. Nothing here is called.</p>${rowsTable(h.items,false)}`;bindRows();
+  }else if(tab==="changes"){
+    const c=await api("/api/changes");v.innerHTML=`<h2>What changed, and why</h2><table><thead><tr><th>When</th><th>Account</th><th>Position</th><th>Explanation</th></tr></thead><tbody>${
+      c.items.map(x=>`<tr class="pick" data-ref="${esc(x.account_ref)}"><td class="small muted">${esc(x.ts.slice(11,19))}</td><td><b>${esc(x.account_ref)}</b></td><td class="pos">${x.old_position??"–"} → ${x.new_position??"–"}</td><td class="small">${esc(x.explanation)}</td></tr>`).join("")||'<tr><td colspan="4" class="muted">No changes yet. Run a scenario or record an event.</td></tr>'}</tbody></table>`;bindRows();
+  }else if(tab==="evaluation"){
+    v.innerHTML="<p class='muted'>Running the holdout evaluation…</p>";const e=await api("/api/evaluation?book=holdout");
+    const line=(l,o)=>`<tr><td>${l}</td><td class="pts">${o.payers_reached}</td><td class="pts">${o.payers_who_needed_the_call}</td><td class="pts">${inr(o.rupees_recovered)}</td><td class="pts">${o.calls_wasted_on_already_paid}</td></tr>`;
+    v.innerHTML=`<h2>Does the ranking beat the original order?</h2><div class="note">${esc(e.label)} Outcomes are hidden from the ranker and joined only after ranking.</div>
+    <p>First <b>${e.capacity}</b> contacts out of ${e.accounts} accounts in a separate holdout file.</p>
+    <table><thead><tr><th>Order used</th><th>Payers reached</th><th>Payers who needed the call</th><th>Rupees recovered</th><th>Calls wasted on already-paid</th></tr></thead><tbody>
+    ${line("Original file order",e.original_file_order)}${line("File order after safety gates",e.file_order_after_safety_gates)}${line("Random order (average of 20)",e.random_order_avg_of_20)}${line("<b>Kramsetu ranked</b>",e.kramsetu_ranked)}</tbody></table>
+    <div class="good">Kramsetu reaches <b>${e.lift_vs_file_order}×</b> as many payers who needed the call as the original file order. ${e.reminder_only_lane} reliable payers get a link instead of a call, and ${e.held_or_excluded} accounts are held or excluded.</div>`;
+  }else if(tab==="fairness"){
+    v.innerHTML="<p class='muted'>Running fairness checks…</p>";const f=await api("/api/fairness");const ok=b=>b?'<span class="b ok">PASS</span>':'<span class="b bad">FAIL</span>';
+    v.innerHTML=`<h2>Fairness checks</h2>
+    <h3>1. Structural ${ok(f.structural.passed)}</h3><p>The scorer accepts only these fields: <b>${f.structural.scorer_input_fields.map(esc).join(", ")}</b>.<br>Never used: ${f.structural.banned_fields.map(esc).join(", ")}.</p>
+    <h3>2. Counterfactual swap ${ok(f.counterfactual.passed)}</h3><p>Changed <b>${f.counterfactual.fields_swapped.map(esc).join(", ")}</b> on all ${f.counterfactual.accounts} accounts. Accounts whose points or position changed: <b>${f.counterfactual.accounts_whose_rank_or_points_changed}</b>.</p>
+    <h3>3. Proxy audit ${ok(f.proxy_audit.passed)}</h3><p class="small muted">${esc(f.proxy_audit.note)}</p>
+    <table><thead><tr><th>Synthetic group</th><th>Accounts</th><th>AUC vs rest (0.5 = cannot tell apart)</th><th>Mean points</th></tr></thead><tbody>${Object.entries(f.proxy_audit.groups).map(([k,g])=>`<tr><td>${esc(k)}</td><td>${g.n}</td><td class="pts">${g.auc_vs_rest}</td><td class="pts">${g.mean_points}</td></tr>`).join("")}</tbody></table>
+    <p>Largest gap from 0.5: <b>${f.proxy_audit["largest_gap_from_0.5"]}</b> (threshold ${f.proxy_audit.threshold}).</p>`;
+  }else if(tab==="scenarios"){
+    const s=await api("/api/scenarios");v.innerHTML=`<h2>Demo scenarios</h2><p class="muted small">Each one reloads the 16-account demo book and runs the same code paths as manual use.</p>
+    ${s.items.map(x=>`<div class="row" style="margin:8px 0"><button class="act" data-s="${x.id}">${esc(x.title)}</button><span class="small">${esc(x.about)}</span></div>`).join("")}<div id="sres"></div>`;
+    document.querySelectorAll("[data-s]").forEach(b=>b.onclick=async()=>{b.disabled=true;try{const r=await post("/api/scenarios/"+b.dataset.s);
+      $("#sres").innerHTML=`<h3>Result</h3>${r.note?`<div class="note">${esc(r.note)}</div>`:""}<div class="tl">${r.steps.map(st=>`<div class="ev"><b>${esc(st.step)}</b><pre>${esc(typeof st.result==="string"?st.result:JSON.stringify(st.result,null,1))}</pre></div>`).join("")}</div>${r.complete?'<div class="good">Scenario complete.</div>':'<div class="note">Waiting for a real sandbox payment. Pay the link, then press Check payment status.</div>'}`;
+      await loadStatus();if(r.account)showAccount(r.account)}catch(e){toast(e.message)}b.disabled=false});
+  }else if(tab==="import"){
+    const f=await api("/api/formula");const li=status.last_import;
+    v.innerHTML=`<h2>Import a borrower file</h2><div class="row"><input type="file" id="file" accept=".csv,.tsv,.txt"><button class="act" id="up">Import</button>
+    <button class="ghost" data-smp="demo">Load demo data (16)</button><button class="ghost" data-smp="main">Load main book (4,200)</button><button class="ghost" data-smp="curveball">Load curveball file</button></div>
+    ${li?`<h3>Last import: ${esc(li.filename)}</h3><div class="grid3"><div class="stat"><b>${li.rows}</b>rows read</div><div class="stat"><b>${li.stored}</b>accounts</div><div class="stat"><b>${li.flagged}</b>flagged for review</div><div class="stat"><b>${li.duplicates}</b>duplicate rows</div></div>
+    <p class="small"><b>Columns understood:</b> ${Object.entries(li.mapping.mapping).map(([a,b])=>esc(a)+" → "+esc(b)).join(", ")}</p>
+    <p class="small"><b>Columns not understood (listed, not used):</b> ${li.unmapped.map(esc).join(", ")||"none"}</p>
+    <p class="small"><b>Sensitive columns dropped at import, never stored:</b> ${li.dropped_sensitive.map(esc).join(", ")||"none in this file"}</p>`:""}
+    <h3>Clock and contact window</h3><div class="row"><button class="ghost" id="adv">Advance simulated clock 1 day</button><button class="ghost" id="t11">Set simulated time 11:00</button><button class="ghost" id="t20">Set simulated time 20:00</button><button class="ghost" id="rst">Reset clock to real time</button></div>
+    <h3>Ranking formula (${esc(f.rule_version)})</h3><p class="small">${esc(f.note)}</p>
+    <table><thead><tr><th>Term</th><th>Max points</th><th>Rule</th></tr></thead><tbody>${f.terms.map(t=>`<tr><td>${esc(t.term)}</td><td>${t.max||"deduction"}</td><td class="small">${esc(t.rule)}</td></tr>`).join("")}</tbody></table>
+    <p class="small"><b>Allowed inputs:</b> ${f.inputs_allowed.map(esc).join(", ")}<br><b>Never used:</b> ${f.inputs_never_used.map(esc).join(", ")}</p>
+    <h3>Configuration (presence only, values never shown)</h3><p class="small">${Object.entries(status.configured).map(([k,x])=>`${esc(k)}: ${x?"set":"<b>not set</b>"}`).join(" · ")}</p>`;
+    $("#up").onclick=async()=>{const fl=$("#file").files[0];if(!fl)return toast("Choose a file first");const fd=new FormData();fd.append("file",fl);try{const r=await api("/api/import",{method:"POST",body:fd});toast(`Imported ${r.stored} accounts, ${r.flagged} flagged`);render()}catch(e){toast(e.message)}};
+    document.querySelectorAll("[data-smp]").forEach(b=>b.onclick=async()=>{b.disabled=true;const r=await post("/api/import-sample/"+b.dataset.smp);toast(`Imported ${r.stored} accounts, ${r.flagged} flagged`);render()});
+    $("#adv").onclick=async()=>{await post("/api/clock",{advance_days:1});render()};$("#t11").onclick=async()=>{await post("/api/clock",{set_time:"11:00"});render()};
+    $("#t20").onclick=async()=>{await post("/api/clock",{set_time:"20:00"});render()};$("#rst").onclick=async()=>{await post("/api/clock",{reset:true});render()};
+  }
+}
+async function showAccount(ref){
+  current=ref;let d;try{d=await api("/api/accounts/"+encodeURIComponent(ref))}catch(e){$("#detail").innerHTML=`<h2>Account</h2><p class="muted">${esc(ref)} is not in the current book.</p>`;return}
+  const a=d.account,open=d.links.find(l=>["ACTIVE","PARTIALLY_PAID","UNKNOWN"].includes(l.status)),last=d.contacts[d.contacts.length-1];
+  const canCall=["ranked","partially_paid"].includes(a.state)&&a.lane!=="call_on_date";
+  const held=["needs_review","claim_under_check","hardship_hold","disputed","do_not_contact"].includes(a.state);
+  $("#detail").innerHTML=`<h2>${esc(a.account_ref)} ${stateBadge(a.state)}</h2>
+  <div class="kv"><div>Borrower</div><div>${esc(a.name||"")}</div><div>Phone</div><div>${esc(a.phone_masked)}</div><div>Call language</div><div>${esc(a.language||"not known, Hindi used")} <span class="muted small">(used only to choose the voice)</span></div>
+  <div>Balance</div><div>${inr(a.outstanding)}</div><div>Days overdue</div><div>${a.days_overdue??"?"}</div><div>Lane</div><div>${esc((a.lane||"none").replace(/_/g," "))}${a.position?` · position <b>${a.position}</b>`:""}</div>
+  <div>Next action</div><div>${esc(a.next_action||"")}</div></div>
+  ${a.reason?`<div class="good"><b>Why:</b> ${esc(a.reason)}</div>`:""}${a.hold_reason?`<div class="note"><b>Hold:</b> ${esc(a.hold_reason)}</div>`:""}
+  ${a.notes&&a.notes.length?`<p class="small muted">Import notes: ${a.notes.map(esc).join("; ")}</p>`:""}${a.note?`<p class="small"><b>Field note:</b> “${esc(a.note)}”</p>`:""}
+  ${a.breakdown.length?`<h3>Points: ${a.points} of 100</h3>${a.breakdown.map(b=>`<div class="small" style="margin:5px 0"><div class="row" style="justify-content:space-between"><span>${esc(b.term)}</span><b>${b.points}${b.max?" / "+b.max:""}</b></div>${b.max?`<div class="bar"><i style="width:${Math.max(0,Math.min(100,b.points/b.max*100))}%"></i></div>`:""}<span class="muted">${esc(b.detail)}</span></div>`).join("")}`:""}
+  <h3>Actions</h3><div class="row">
+    <button class="act" id="call" ${canCall?"":"disabled"}>Approve contact</button>
+    <button class="ghost" id="lnk" ${canCall||a.lane==="reminder_only"?"":"disabled"}>Send payment link</button>
+    ${held?`<button class="ghost" id="rel">Release to queue</button><button class="ghost" id="off">Confirm offline payment</button>`:""}</div>
+  ${last&&last.script?`<h3>Call script (${esc(last.script.language)}, ${last.mode==="simulated"?"SIMULATED CALL":"Relay call"})</h3><pre>${last.script.lines.map(l=>esc(l.text)).join("\n")}</pre>${last.has_audio?`<audio controls src="/api/contacts/${last.id}/audio" style="width:100%"></audio>`:""}`:""}
+  ${a.state==="contacted"||last?`<h3>Borrower reply</h3><textarea id="rep" rows="2" placeholder="Type or paste what the borrower said, e.g. salary 5th ko aayega"></textarea>
+   <div class="row" style="margin-top:6px"><button class="act" id="sendrep">Record reply</button><input type="file" id="aud" accept="audio/*"><button class="ghost" id="sendaud">Transcribe with Saaras</button></div>
+   ${last&&last.transcript?`<p class="small"><b>Last transcript</b> (${esc(last.transcript_source||"")}): “${esc(last.transcript)}”<br>Understood as <b>${esc(last.intent)}</b>, confidence ${last.confidence}, evidence “${esc(last.evidence||"")}”. <span class="muted">Uncertain evidence, not a payment.</span></p>`:""}`:""}
+  ${d.links.length?`<h3>Payment links</h3>${d.links.map(l=>`<div class="small" style="margin-bottom:8px"><b>${esc(l.link_id)}</b> <span class="b ${l.mode==="mock"?"warn":"ok"}">${l.mode==="mock"?"MOCK":"CASHFREE SANDBOX"}</span> <span class="b">${esc(l.status)}</span><br>${inr(l.amount)} · paid ${inr(l.amount_paid)}${l.min_part?` · minimum first amount ${inr(l.min_part)}`:""}<br>${l.mode==="mock"?esc(l.link_url):`<a href="${esc(l.link_url)}" target="_blank" rel="noopener">${esc(l.link_url)}</a>`}
+   <div class="row" style="margin-top:4px"><button class="ghost" data-chk="${esc(l.link_id)}">Check status</button>${l.mode==="mock"&&["ACTIVE","PARTIALLY_PAID"].includes(l.status)?`<button class="ghost" data-pay="${esc(l.link_id)}" data-amt="${l.amount-l.amount_paid}">MOCK: pay remaining</button><button class="ghost" data-pay="${esc(l.link_id)}" data-amt="${Math.max(l.min_part||0,Math.round((l.amount-l.amount_paid)/2))}">MOCK: pay part</button><button class="ghost" data-exp="${esc(l.link_id)}">MOCK: expire</button>`:""}</div></div>`).join("")}`:""}
+  <h3>Audit trail (append-only)</h3><div class="tl">${d.timeline.slice().reverse().map(e=>`<div class="ev"><b>${esc(e.kind.replace(/_/g," "))}</b> <span class="muted small">${esc(e.ts.slice(0,19).replace("T"," "))} · ${esc(e.actor)} · ${esc(e.source)}</span><pre>${esc(JSON.stringify(e.detail,null,1))}</pre></div>`).join("")}</div>
+  <h3>Ranking inputs (the only fields the scorer sees)</h3><pre>${esc(JSON.stringify(a.ranking_inputs,null,1))}</pre>`;
+  const run=async(fn)=>{try{const r=await fn();toast(r.summary||r.message||r.error||(r.ok===false?"Not done":"Done"));}catch(e){toast(e.message)}await render();showAccount(ref)};
+  const on=(id,fn)=>{const el=document.getElementById(id);if(el)el.onclick=()=>run(fn)};
+  on("call",()=>post(`/api/accounts/${encodeURIComponent(ref)}/contact`));on("lnk",()=>post(`/api/accounts/${encodeURIComponent(ref)}/link`));
+  on("rel",()=>post(`/api/accounts/${encodeURIComponent(ref)}/review`,{action:"release",note:"released from dashboard"}));
+  on("off",()=>post(`/api/accounts/${encodeURIComponent(ref)}/review`,{action:"confirm_paid_offline",note:prompt("Receipt reference or note")||""}));
+  on("sendrep",()=>post(`/api/accounts/${encodeURIComponent(ref)}/reply`,{transcript:$("#rep").value}));
+  on("sendaud",async()=>{const f=$("#aud").files[0];if(!f)throw new Error("Choose an audio file first");const fd=new FormData();fd.append("file",f);return api(`/api/accounts/${encodeURIComponent(ref)}/reply-audio`,{method:"POST",body:fd})});
+  document.querySelectorAll("[data-chk]").forEach(b=>b.onclick=()=>run(()=>post(`/api/links/${encodeURIComponent(b.dataset.chk)}/check`)));
+  document.querySelectorAll("[data-pay]").forEach(b=>b.onclick=()=>run(()=>post("/api/mock/pay",{link_id:b.dataset.pay,amount:Number(b.dataset.amt)})));
+  document.querySelectorAll("[data-exp]").forEach(b=>b.onclick=()=>run(()=>post("/api/mock/pay",{link_id:b.dataset.exp,expire:true})));
+}
+(async()=>{await loadStatus();if(!status.accounts){await post("/api/import-sample/demo")}render()})();
+</script>
+</body>
+</html>
